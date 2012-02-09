@@ -167,14 +167,14 @@ NSString *const kOpenmetaTagXAttrKeyword = @"com.apple.metadata:kMDItemOMUserTag
 - (id)_valueForKey:(NSString *)key atPath:(NSString *)path
 {
     NSString *value = nil;
-	size_t dataSize = getxattr([path fileSystemRepresentation], [key UTF8String], NULL, ULONG_MAX, 0, 0);
-	if(dataSize < ULONG_MAX) {
+    size_t dataSize = getxattr([path fileSystemRepresentation], [key UTF8String], NULL, ULONG_MAX, 0, 0);
+    if(dataSize < ULONG_MAX) {
         NSMutableData *data = [NSMutableData dataWithLength:dataSize];
-        getxattr([path fileSystemRepresentation], [key UTF8String], [data mutableBytes], [data length], 0, 0);	
+        getxattr([path fileSystemRepresentation], [key UTF8String], [data mutableBytes], [data length], 0, 0);
         NSPropertyListFormat outFormat = NSPropertyListXMLFormat_v1_0;
         value = [NSPropertyListSerialization propertyListFromData:data mutabilityOption:NSPropertyListImmutable format:&outFormat errorDescription:nil];
     }
-	return value;
+    return value;
 }
 
 - (void)_setValue:(id)value forKey:(NSString *)key atPath:(NSString* )path

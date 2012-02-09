@@ -18,8 +18,8 @@
 		451EA22414DFA53300BABD08 /* QSPlugIn_Debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 451EA21C14DFA53300BABD08 /* QSPlugIn_Debug.xcconfig */; };
 		451EA22514DFA53300BABD08 /* QSPlugIn_Release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 451EA21D14DFA53300BABD08 /* QSPlugIn_Release.xcconfig */; };
 		451EA22614DFA53300BABD08 /* Release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 451EA21F14DFA53300BABD08 /* Release.xcconfig */; };
+		453A92D514E478C3002A3D84 /* Tag.png in Resources */ = {isa = PBXBuildFile; fileRef = 453A92D414E478C3002A3D84 /* Tag.png */; };
 		45AFC3CC14E207FB0048B8F0 /* OpenMetaHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 45AFC3CB14E207FB0048B8F0 /* OpenMetaHandler.m */; };
-		45C97F9114DFA95F00F3CF97 /* Tag.png in Resources */ = {isa = PBXBuildFile; fileRef = 45C97F8E14DFA95F00F3CF97 /* Tag.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,9 +39,9 @@
 		451EA21D14DFA53300BABD08 /* QSPlugIn_Release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = QSPlugIn_Release.xcconfig; sourceTree = "<group>"; };
 		451EA21E14DFA53300BABD08 /* Quicksilver.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Quicksilver.pch; sourceTree = "<group>"; };
 		451EA21F14DFA53300BABD08 /* Release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
+		453A92D414E478C3002A3D84 /* Tag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Tag.png; path = Resources/Tag.png; sourceTree = "<group>"; };
 		457BE52C14E197C100484B28 /* OpenMetaHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenMetaHandler.h; sourceTree = "<group>"; };
 		45AFC3CB14E207FB0048B8F0 /* OpenMetaHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenMetaHandler.m; sourceTree = "<group>"; };
-		45C97F8E14DFA95F00F3CF97 /* Tag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tag.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,7 +125,7 @@
 		45C97F8B14DFA94800F3CF97 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				45C97F8E14DFA95F00F3CF97 /* Tag.png */,
+				453A92D414E478C3002A3D84 /* Tag.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -190,7 +190,7 @@
 				451EA22414DFA53300BABD08 /* QSPlugIn_Debug.xcconfig in Resources */,
 				451EA22514DFA53300BABD08 /* QSPlugIn_Release.xcconfig in Resources */,
 				451EA22614DFA53300BABD08 /* Release.xcconfig in Resources */,
-				45C97F9114DFA95F00F3CF97 /* Tag.png in Resources */,
+				453A92D514E478C3002A3D84 /* Tag.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

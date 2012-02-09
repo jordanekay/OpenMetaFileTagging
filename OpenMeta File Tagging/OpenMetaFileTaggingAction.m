@@ -44,7 +44,7 @@
 {
     NSArray *tags = [self tagsForFiles:files];
     [[QSReg preferredCommandInterface] showArray:tags];
-	return nil;
+    return nil;
 }
 
 - (QSObject *)addToFiles:(QSObject *)files tagList:(QSObject *)tagList
@@ -53,7 +53,7 @@
         NSArray *tagNames = [[tagList name] componentsSeparatedByString:@", "];
         [[OpenMetaHandler sharedHandler] addTags:tagNames toFile:[file objectForType:NSFilenamesPboardType]];
     }
-	return nil;
+    return nil;
 }
 
 - (QSObject *)removeFromFiles:(QSObject *)files tags:(QSObject *)tags
@@ -65,7 +65,7 @@
     for(QSObject *file in [files splitObjects]) {
         [[OpenMetaHandler sharedHandler] removeTags:tagNames fromFile:[file objectForType:NSFilenamesPboardType]];
     }
-	return nil;
+    return nil;
 }
 
 - (QSObject *)setToFiles:(QSObject *)files tagList:(QSObject *)tagList
@@ -74,13 +74,13 @@
         NSArray *tags = [[tagList name] componentsSeparatedByString:@", "];
         [[OpenMetaHandler sharedHandler] setTags:tags forFile:[file objectForType:NSFilenamesPboardType]];
     }
-	return nil;
+    return nil;
 }
 
 - (QSObject *)clearTagsFromFiles:(QSObject *)files
 {
     [self setToFiles:files tagList:nil];
-	return nil;
+    return nil;
 }
 
 - (NSArray *)validIndirectObjectsForAction:(NSString *)action directObject:(QSObject *)files 
