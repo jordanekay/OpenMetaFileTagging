@@ -1,1 +1,28 @@
-OpenMeta File Tagging Plugin
+# OpenMeta File Tagging Plugin #
+
+The OpenMeta File Tagging Plugin for Quicksilver provides an interface for adding and removing OpenMeta tags to files, as well as browsing tags and finding all files with a certain tag or tags.
+
+## Source ##
+
+The plugin adds all of the user’s OpenMeta tags to Quicksilver’s catalog. As a Quicksilver object, an OpenMeta tag is treated like a folder: its children objects are its contents, accessed by drilling down into the tag. A tag’s contents consist of all files tagged with it, plus every other tag belonging to these files.
+
+## Search ##
+
+Use the OpenMeta File Tagging Plugin to search for files by tag. Drill down into a tag to see an alphabetical listing of all files so tagged. At the end of this list is a list of the other tags for these files. Refine your search by drilling down into one of these tags and filter even further. With this mechanism you can arbitrarily extend a query to involve any number of tags.
+
+For example, to see all files tagged with the tag “foo,” bring up the “foo” tag object and drill down into it. Say some of these files are also tagged with “bar,” and still others, “baz”; these two will be listed at the bottom, after the list of files. Drilling down into one will further filter the results to only show files with *both* tags (files tagged with “foo” and “bar” or files tagged with “foo” and “baz”). Drilling up out of these results reverts to showing all files tagged with just “foo.”
+
+When performing such a compound tag query, you can keep track of the current search by looking at a possible tag’s value: filtering files tagged with “foo” and then “bar” will show the second tag as “foo, bar” in the command window. (Note: If your Quicksilver catalog contains Recent Objects, these compound tag lists will be included, and this may not be the browsing behavior you desire.)
+
+## Working with Tags ##
+
+All of the expected tagging actions are made available by the plugin. Users can add tags to files, remove tags from files, set the tags of files to a different set, clear all tags from files, and show the tags of files. These actions can be performed on a single file or multiple files, thanks to Quicksilver’s multiple selection support using the comma key. Tags can be added to or removed from multiple files at a time, and the user can show all the tags that a group of files has in common. Showing the tags for a file or files will bring up a list of the tags in the Quicksilver’s direct object pane, ready to be explored. A similar interface is used for removing tags from files, presenting a list of that file’s current tags (or shared tags for multiple files).
+
+## Implementation ##
+
+The plugin hooks into the extended file attributes (with xattr) and Spotlight search capabilities (using MDQuery) of the Mac OS X filesystem directly; it does not require the OpenMeta command-line tool to be installed. As such, it should work right out of the box, allowing users to start tagging and finding files with OpenMeta even if they have never used the system before. This also allows performance to benefit from all actions being carried out directly at the xattr or MDQuery level, with no intermediary tools. There is no noticeable lag in searching or tagging, regardless of the complexity or size of the query or file list.
+
+## Further Work ##
+
+As a part of Quicksilver the OpenMeta File Tagging plugin provides a foundation for most functionality of a tagging system, all available directly in the interface. Extending beyond Quicksilver might be a possibility worth exploring, perhaps showing files with certain tags in a new Finder window, or in a tagging-focused application like Leap.
+ 
