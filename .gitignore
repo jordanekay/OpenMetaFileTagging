@@ -1,2 +1,18 @@
-OpenMeta File Tagging.xcodeproj/project.xcworkspace/xcuserdata/jordanekay.xcuserdatad/UserInterfaceState.xcuserstate
-.DS_Store*
+.svn
+.DS_Store
+._.*
+*.o
+build
+Makefile
+autom4te.cache
+*~
+*.pbxuser
+*.perspectivev3
+*.mode1v3
+*.mode2v3
+*.pbxuser
+*.tm_build_errors
+*.tmproj
+Developer.xcconfig
+*.xcworkspace
+*.xcuserdatad

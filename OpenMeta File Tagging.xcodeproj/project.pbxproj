@@ -119,7 +119,7 @@
 				451EA21F14DFA53300BABD08 /* Release.xcconfig */,
 			);
 			name = Configuration;
-			path = "/Users/jordanekay/Development/OpenMeta File Tagging/../../../../private/tmp/QS/Configuration";
+			path = /tmp/QS/Configuration;
 			sourceTree = "<absolute>";
 		};
 		45C97F8B14DFA94800F3CF97 /* Resources */ = {
@@ -158,7 +158,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0420;
-				ORGANIZATIONNAME = "Twitter, Inc.";
+				ORGANIZATIONNAME = "Laughing Sprout";
 			};
 			buildConfigurationList = 451EA1F914DFA4CA00BABD08 /* Build configuration list for PBXProject "OpenMeta File Tagging" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -208,7 +208,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
-			shellScript = "$SRCROOT/OpenMeta File Tagging/bltrversion $INFOPLIST_FILE";
+			shellScript = "\"$SRCROOT/OpenMeta File Tagging/bltrversion\" \"$INFOPLIST_FILE\"";
 		};
 /* End PBXShellScriptBuildPhase section */
 
