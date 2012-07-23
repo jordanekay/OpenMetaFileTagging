@@ -155,8 +155,8 @@ NSString *const kOpenmetaTagXAttrKeyword = @"com.apple.metadata:kMDItemOMUserTag
 {
     return [[^(MDQueryRef query, CFIndex i) {
         MDItemRef item = (MDItemRef)MDQueryGetResultAtIndex(query, i);
-        NSString *name = (NSString*)MDItemCopyAttribute (item, kMDItemFSName);
-        NSString *path = (NSString*)MDItemCopyAttribute (item, kMDItemPath);
+        NSString *name = (NSString*)MDItemCopyAttribute(item, kMDItemFSName);
+        NSString *path = (NSString*)MDItemCopyAttribute(item, kMDItemPath);
         QSObject *file = [QSObject objectWithType:NSFilenamesPboardType value:path name:name];
         [files addObject:file];
     } copy] autorelease];
