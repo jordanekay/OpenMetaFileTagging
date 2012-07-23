@@ -227,6 +227,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 45A647A015BD31E1009E4436 /* Debug.xcconfig */;
 			buildSettings = {
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 			};
 			name = Debug;
 		};
@@ -234,6 +235,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 45A647A615BD31E1009E4436 /* Release.xcconfig */;
 			buildSettings = {
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 			};
 			name = Release;
 		};
@@ -241,6 +243,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 45A647A215BD31E1009E4436 /* QSPlugIn.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				MACOSX_DEPLOYMENT_TARGET = 10.6.8;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -249,6 +253,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 45A647A215BD31E1009E4436 /* QSPlugIn.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				MACOSX_DEPLOYMENT_TARGET = 10.6.8;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

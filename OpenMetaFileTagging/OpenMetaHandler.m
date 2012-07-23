@@ -38,7 +38,7 @@ NSString *const kOpenmetaTagXAttrKeyword = @"com.apple.metadata:kMDItemOMUserTag
 - (NSSet *)allTagNames
 {
     NSString *queryString = [NSString stringWithFormat:@"%@ == *", kOpenmetaTagKeyword];
-    NSArray *types = [NSArray arrayWithObject:kOpenmetaTagKeyword];
+    NSArray *types = @[kOpenmetaTagKeyword];
     
     NSMutableSet *tags = [NSMutableSet set];
     [self _runQuery:queryString forTypes:types usingBlock:[self _addTagNamesBlock:tags]];
@@ -48,18 +48,18 @@ NSString *const kOpenmetaTagXAttrKeyword = @"com.apple.metadata:kMDItemOMUserTag
 - (NSArray *)filesWithTagList:(NSString *)tagList
 {
     NSString *queryString = [self _queryStringForTagList:tagList];
-    NSArray *types = [NSArray arrayWithObjects:(NSString *)kMDItemPath, kMDItemFSName, nil];
+    NSArray *types = @[(NSString *)kMDItemPath, kMDItemFSName];
     
     NSMutableSet *files = [NSMutableSet set];
     [self _runQuery:queryString forTypes:types usingBlock:[self _addFileBlock:files]];
     NSSortDescriptor *descriptor = [[[NSSortDescriptor alloc] initWithKey:kOpenmetaFileNameKey ascending:YES] autorelease];
-    return [files sortedArrayUsingDescriptors:[NSArray arrayWithObject:descriptor]];
+    return [files sortedArrayUsingDescriptors:@[descriptor]];
 }
 
 - (NSArray *)relatedTagNamesForTagList:(NSString *)tagList
 {
     NSString *queryString = [self _queryStringForTagList:tagList];
-    NSArray *types = [NSArray arrayWithObject:kOpenmetaTagKeyword];
+    NSArray *types = @[kOpenmetaTagKeyword];
     
     NSMutableSet *relatedTagNames = [NSMutableSet set];
     [self _runQuery:queryString forTypes:types usingBlock:[self _addTagNamesBlock:relatedTagNames]];
@@ -85,7 +85,7 @@ NSString *const kOpenmetaTagXAttrKeyword = @"com.apple.metadata:kMDItemOMUserTag
     }
     
     NSSortDescriptor *descriptor = [[[NSSortDescriptor alloc] initWithKey:kOpenmetaFileNameKey ascending:YES] autorelease];
-    [objects addObjectsFromArray:[relatedTags sortedArrayUsingDescriptors:[NSArray arrayWithObject:descriptor]]];
+    [objects addObjectsFromArray:[relatedTags sortedArrayUsingDescriptors:@[descriptor]]];
     return objects;
 }
 
