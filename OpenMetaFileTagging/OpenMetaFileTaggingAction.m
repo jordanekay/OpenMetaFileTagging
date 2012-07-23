@@ -93,7 +93,7 @@
         if([action isEqualToString:SET_TAGS_ACTION]) {
             currentValue = [[self sharedTagNamesForFiles:files] componentsJoinedByString:@", "];
         }
-        indirectObjects = [NSArray arrayWithObject:[QSObject textProxyObjectWithDefaultValue:currentValue]]; 
+        indirectObjects = @[[QSObject textProxyObjectWithDefaultValue:currentValue]]; 
     }
     return indirectObjects;
 } 
