@@ -24,8 +24,6 @@
 		45A647A015BD31E1009E4436 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
 		45A647A115BD31E1009E4436 /* Developer.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Developer.xcconfig; sourceTree = "<group>"; };
 		45A647A215BD31E1009E4436 /* QSPlugIn.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = QSPlugIn.xcconfig; sourceTree = "<group>"; };
-		45A647A315BD31E1009E4436 /* QSPlugIn_Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = QSPlugIn_Debug.xcconfig; sourceTree = "<group>"; };
-		45A647A415BD31E1009E4436 /* QSPlugIn_Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = QSPlugIn_Release.xcconfig; sourceTree = "<group>"; };
 		45A647A515BD31E1009E4436 /* Quicksilver.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Quicksilver.pch; sourceTree = "<group>"; };
 		45A647A615BD31E1009E4436 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 		45A647A915BD31E1009E4436 /* OpenMetaFileTaggingAction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpenMetaFileTaggingAction.h; sourceTree = "<group>"; };
@@ -106,8 +104,6 @@
 				45A647A015BD31E1009E4436 /* Debug.xcconfig */,
 				45A647A115BD31E1009E4436 /* Developer.xcconfig */,
 				45A647A215BD31E1009E4436 /* QSPlugIn.xcconfig */,
-				45A647A315BD31E1009E4436 /* QSPlugIn_Debug.xcconfig */,
-				45A647A415BD31E1009E4436 /* QSPlugIn_Release.xcconfig */,
 				45A647A515BD31E1009E4436 /* Quicksilver.pch */,
 				45A647A615BD31E1009E4436 /* Release.xcconfig */,
 			);
@@ -227,7 +223,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 45A647A015BD31E1009E4436 /* Debug.xcconfig */;
 			buildSettings = {
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
 			};
 			name = Debug;
 		};
@@ -235,7 +230,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 45A647A615BD31E1009E4436 /* Release.xcconfig */;
 			buildSettings = {
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
 			};
 			name = Release;
 		};
@@ -244,8 +238,7 @@
 			baseConfigurationReference = 45A647A215BD31E1009E4436 /* QSPlugIn.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				MACOSX_DEPLOYMENT_TARGET = 10.6.8;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = OpenMetaFileTagging;
 			};
 			name = Debug;
 		};
@@ -254,8 +247,7 @@
 			baseConfigurationReference = 45A647A215BD31E1009E4436 /* QSPlugIn.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				MACOSX_DEPLOYMENT_TARGET = 10.6.8;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = OpenMetaFileTagging;
 			};
 			name = Release;
 		};
