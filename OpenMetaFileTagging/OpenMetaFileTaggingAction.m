@@ -43,7 +43,7 @@
 - (QSObject *)showTagsForFiles:(QSObject *)files
 {
     NSArray *tags = [self tagsForFiles:files];
-    [[QSReg preferredCommandInterface] showArray:tags];
+    [[QSReg preferredCommandInterface] showArray:[NSMutableArray arrayWithArray:tags]];
     return nil;
 }
 

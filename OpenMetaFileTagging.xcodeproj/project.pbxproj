@@ -1,0 +1,280 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		45A6479715BD31E1009E4436 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45A6479615BD31E1009E4436 /* Cocoa.framework */; };
+		45A6479D15BD31E1009E4436 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 45A6479B15BD31E1009E4436 /* InfoPlist.strings */; };
+		45A647AB15BD31E1009E4436 /* OpenMetaFileTaggingAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A647AA15BD31E1009E4436 /* OpenMetaFileTaggingAction.m */; };
+		45A647AE15BD31E1009E4436 /* OpenMetaFileTaggingSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A647AD15BD31E1009E4436 /* OpenMetaFileTaggingSource.m */; };
+		45A647BC15BD3A6B009E4436 /* OpenMetaHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A647BB15BD3A6B009E4436 /* OpenMetaHandler.m */; };
+		45A647C315BD3C3D009E4436 /* Tag.png in Resources */ = {isa = PBXBuildFile; fileRef = 45A647C215BD3C3D009E4436 /* Tag.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		45A6479315BD31E1009E4436 /* OpenMetaFileTagging.qsplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OpenMetaFileTagging.qsplugin; sourceTree = BUILT_PRODUCTS_DIR; };
+		45A6479615BD31E1009E4436 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		45A6479A15BD31E1009E4436 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = SOURCE_ROOT; };
+		45A6479C15BD31E1009E4436 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		45A6479F15BD31E1009E4436 /* Common.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Common.xcconfig; sourceTree = "<group>"; };
+		45A647A015BD31E1009E4436 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
+		45A647A115BD31E1009E4436 /* Developer.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Developer.xcconfig; sourceTree = "<group>"; };
+		45A647A215BD31E1009E4436 /* QSPlugIn.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = QSPlugIn.xcconfig; sourceTree = "<group>"; };
+		45A647A315BD31E1009E4436 /* QSPlugIn_Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = QSPlugIn_Debug.xcconfig; sourceTree = "<group>"; };
+		45A647A415BD31E1009E4436 /* QSPlugIn_Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = QSPlugIn_Release.xcconfig; sourceTree = "<group>"; };
+		45A647A515BD31E1009E4436 /* Quicksilver.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Quicksilver.pch; sourceTree = "<group>"; };
+		45A647A615BD31E1009E4436 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
+		45A647A915BD31E1009E4436 /* OpenMetaFileTaggingAction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpenMetaFileTaggingAction.h; sourceTree = "<group>"; };
+		45A647AA15BD31E1009E4436 /* OpenMetaFileTaggingAction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OpenMetaFileTaggingAction.m; sourceTree = "<group>"; };
+		45A647AC15BD31E1009E4436 /* OpenMetaFileTaggingSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpenMetaFileTaggingSource.h; sourceTree = "<group>"; };
+		45A647AD15BD31E1009E4436 /* OpenMetaFileTaggingSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OpenMetaFileTaggingSource.m; sourceTree = "<group>"; };
+		45A647BA15BD3A6B009E4436 /* OpenMetaHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenMetaHandler.h; sourceTree = "<group>"; };
+		45A647BB15BD3A6B009E4436 /* OpenMetaHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenMetaHandler.m; sourceTree = "<group>"; };
+		45A647C215BD3C3D009E4436 /* Tag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tag.png; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		45A6479015BD31E1009E4436 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				45A6479715BD31E1009E4436 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		45A6478715BD31E1009E4436 = {
+			isa = PBXGroup;
+			children = (
+				45A6479815BD31E1009E4436 /* OpenMetaFileTagging */,
+				45A6479515BD31E1009E4436 /* Frameworks */,
+				45A647C115BD3C3D009E4436 /* Resources */,
+				45A6479415BD31E1009E4436 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		45A6479415BD31E1009E4436 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				45A6479315BD31E1009E4436 /* OpenMetaFileTagging.qsplugin */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		45A6479515BD31E1009E4436 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				45A6479615BD31E1009E4436 /* Cocoa.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		45A6479815BD31E1009E4436 /* OpenMetaFileTagging */ = {
+			isa = PBXGroup;
+			children = (
+				45A647A915BD31E1009E4436 /* OpenMetaFileTaggingAction.h */,
+				45A647AA15BD31E1009E4436 /* OpenMetaFileTaggingAction.m */,
+				45A647AC15BD31E1009E4436 /* OpenMetaFileTaggingSource.h */,
+				45A647AD15BD31E1009E4436 /* OpenMetaFileTaggingSource.m */,
+				45A647BA15BD3A6B009E4436 /* OpenMetaHandler.h */,
+				45A647BB15BD3A6B009E4436 /* OpenMetaHandler.m */,
+				45A6479E15BD31E1009E4436 /* Configuration */,
+				45A6479915BD31E1009E4436 /* Supporting Files */,
+			);
+			path = OpenMetaFileTagging;
+			sourceTree = "<group>";
+		};
+		45A6479915BD31E1009E4436 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				45A6479A15BD31E1009E4436 /* Info.plist */,
+				45A6479B15BD31E1009E4436 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		45A6479E15BD31E1009E4436 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				45A6479F15BD31E1009E4436 /* Common.xcconfig */,
+				45A647A015BD31E1009E4436 /* Debug.xcconfig */,
+				45A647A115BD31E1009E4436 /* Developer.xcconfig */,
+				45A647A215BD31E1009E4436 /* QSPlugIn.xcconfig */,
+				45A647A315BD31E1009E4436 /* QSPlugIn_Debug.xcconfig */,
+				45A647A415BD31E1009E4436 /* QSPlugIn_Release.xcconfig */,
+				45A647A515BD31E1009E4436 /* Quicksilver.pch */,
+				45A647A615BD31E1009E4436 /* Release.xcconfig */,
+			);
+			name = Configuration;
+			path = /private/tmp/QS/Configuration;
+			sourceTree = "<absolute>";
+		};
+		45A647C115BD3C3D009E4436 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				45A647C215BD3C3D009E4436 /* Tag.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		45A6479215BD31E1009E4436 /* OpenMetaFileTagging */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 45A647B115BD31E1009E4436 /* Build configuration list for PBXNativeTarget "OpenMetaFileTagging" */;
+			buildPhases = (
+				45A6478E15BD31E1009E4436 /* ShellScript */,
+				45A6478F15BD31E1009E4436 /* Sources */,
+				45A6479015BD31E1009E4436 /* Frameworks */,
+				45A6479115BD31E1009E4436 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OpenMetaFileTagging;
+			productName = OpenMetaFileTagging;
+			productReference = 45A6479315BD31E1009E4436 /* OpenMetaFileTagging.qsplugin */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		45A6478915BD31E1009E4436 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0440;
+				ORGANIZATIONNAME = "Twitter, Inc.";
+			};
+			buildConfigurationList = 45A6478C15BD31E1009E4436 /* Build configuration list for PBXProject "OpenMetaFileTagging" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 45A6478715BD31E1009E4436;
+			productRefGroup = 45A6479415BD31E1009E4436 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				45A6479215BD31E1009E4436 /* OpenMetaFileTagging */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		45A6479115BD31E1009E4436 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				45A6479D15BD31E1009E4436 /* InfoPlist.strings in Resources */,
+				45A647C315BD3C3D009E4436 /* Tag.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		45A6478E15BD31E1009E4436 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+			shellPath = /bin/sh;
+			shellScript = "\"$QS_BUILD_ROOT/Tools/bltrversion\"";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		45A6478F15BD31E1009E4436 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				45A647AB15BD31E1009E4436 /* OpenMetaFileTaggingAction.m in Sources */,
+				45A647AE15BD31E1009E4436 /* OpenMetaFileTaggingSource.m in Sources */,
+				45A647BC15BD3A6B009E4436 /* OpenMetaHandler.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		45A6479B15BD31E1009E4436 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				45A6479C15BD31E1009E4436 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		45A647AF15BD31E1009E4436 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 45A647A015BD31E1009E4436 /* Debug.xcconfig */;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		45A647B015BD31E1009E4436 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 45A647A615BD31E1009E4436 /* Release.xcconfig */;
+			buildSettings = {
+			};
+			name = Release;
+		};
+		45A647B215BD31E1009E4436 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 45A647A215BD31E1009E4436 /* QSPlugIn.xcconfig */;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		45A647B315BD31E1009E4436 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 45A647A215BD31E1009E4436 /* QSPlugIn.xcconfig */;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		45A6478C15BD31E1009E4436 /* Build configuration list for PBXProject "OpenMetaFileTagging" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				45A647AF15BD31E1009E4436 /* Debug */,
+				45A647B015BD31E1009E4436 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		45A647B115BD31E1009E4436 /* Build configuration list for PBXNativeTarget "OpenMetaFileTagging" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				45A647B215BD31E1009E4436 /* Debug */,
+				45A647B315BD31E1009E4436 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 45A6478915BD31E1009E4436 /* Project object */;
+}
