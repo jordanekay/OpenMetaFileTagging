@@ -122,7 +122,9 @@ NSString *const kOpenmetaTagXAttrKeyword = @"com.apple.metadata:kMDItemOMUserTag
     if(queryRan) {
         CFIndex count = MDQueryGetResultCount(query);
         for(CFIndex i = 0; i < count; i++) {
-            block(query, i);
+            if(block) {
+                block(query, i);                
+            }
         }
     }
     CFRelease(query);
