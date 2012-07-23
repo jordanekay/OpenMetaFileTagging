@@ -27,7 +27,7 @@ NSString *const kOpenmetaTagXAttrKeyword = @"com.apple.metadata:kMDItemOMUserTag
 - (NSSet *)allTagNames
 {
     NSString *queryString = [NSString stringWithFormat:@"%@ == *", kOpenmetaTagKeyword];
-    NSArray *types = @[kOpenmetaTagKeyword];
+    NSArray *types = [NSArray arrayWithObject:kOpenmetaTagKeyword];
     
     NSMutableSet *tags = [NSMutableSet set];
     [self _runQuery:queryString forTypes:types usingBlock:[self _addTagNamesBlock:tags]];
@@ -37,18 +37,18 @@ NSString *const kOpenmetaTagXAttrKeyword = @"com.apple.metadata:kMDItemOMUserTag
 - (NSArray *)filesWithTagList:(NSString *)tagList
 {
     NSString *queryString = [self _queryStringForTagList:tagList];
-    NSArray *types = @[(NSString *)kMDItemPath, (NSString *)kMDItemFSName];
+    NSArray *types = [NSArray arrayWithObjects:(NSString *)kMDItemPath, (NSString *)kMDItemFSName, nil];
     
     NSMutableSet *files = [NSMutableSet set];
     [self _runQuery:queryString forTypes:types usingBlock:[self _addFileBlock:files]];
     NSSortDescriptor *descriptor = [[[NSSortDescriptor alloc] initWithKey:kOpenmetaFileNameKey ascending:YES] autorelease];
-    return [files sortedArrayUsingDescriptors:@[descriptor]];
+    return [files sortedArrayUsingDescriptors:[NSArray arrayWithObject:descriptor]];
 }
 
 - (NSArray *)relatedTagNamesForTagList:(NSString *)tagList
 {
     NSString *queryString = [self _queryStringForTagList:tagList];
-    NSArray *types = @[kOpenmetaTagKeyword];
+    NSArray *types = [NSArray arrayWithObject:kOpenmetaTagKeyword];
     
     NSMutableSet *relatedTagNames = [NSMutableSet set];
     [self _runQuery:queryString forTypes:types usingBlock:[self _addTagNamesBlock:relatedTagNames]];
@@ -74,7 +74,7 @@ NSString *const kOpenmetaTagXAttrKeyword = @"com.apple.metadata:kMDItemOMUserTag
     }
     
     NSSortDescriptor *descriptor = [[[NSSortDescriptor alloc] initWithKey:kOpenmetaFileNameKey ascending:YES] autorelease];
-    [objects addObjectsFromArray:[relatedTags sortedArrayUsingDescriptors:@[descriptor]]];
+    [objects addObjectsFromArray:[relatedTags sortedArrayUsingDescriptors:[NSArray arrayWithObject:descriptor]]];
     return objects;
 }
 
