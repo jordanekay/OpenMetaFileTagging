@@ -237,7 +237,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 45A647A215BD31E1009E4436 /* QSPlugIn.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				PRODUCT_NAME = OpenMetaFileTagging;
 			};
 			name = Debug;
@@ -246,7 +245,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 45A647A215BD31E1009E4436 /* QSPlugIn.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				PRODUCT_NAME = OpenMetaFileTagging;
 			};
 			name = Release;
