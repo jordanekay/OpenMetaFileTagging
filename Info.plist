@@ -9,7 +9,7 @@
 	<key>CFBundleIconFile</key>
 	<string></string>
 	<key>CFBundleIdentifier</key>
-	<string>com.blacktree.Quicksilver.OpenMetaFileTagging</string>
+	<string>com.qsapp.OpenMetaFileTagging</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -186,12 +186,21 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>QSRequirements</key>
+	<dict>
+		<key>obsoletes</key>
+		<array>
+			<string>com.blacktree.Quicksilver.OpenMetaFileTagging</string>
+		</array>
+		<key>version</key>
+		<string>3926</string>
+	</dict>
 	<key>QSResourceAdditions</key>
 	<dict>
 		<key>OpenMetaTagIcon</key>
 		<dict>
 			<key>bundle</key>
-			<string>com.blacktree.Quicksilver.OpenMetaFileTagging</string>
+			<string>com.qsapp.OpenMetaFileTagging</string>
 			<key>resource</key>
 			<string>Tag.png</string>
 		</dict>
