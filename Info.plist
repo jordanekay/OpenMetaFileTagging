@@ -135,7 +135,7 @@
 		<string>OpenMetaTagIcon</string>
 		<key>relatedBundles</key>
 		<array>
-			<string>com.blacktree.Quicksilver.OpenMetaFileTagging</string>
+			<string>com.ironic.tagit</string>
 		</array>
 	</dict>
 	<key>QSPresetAdditions</key>
