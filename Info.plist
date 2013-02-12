@@ -16,106 +16,106 @@
 	<string>${PRODUCT_NAME}</string>
 	<key>CFBundlePackageType</key>
 	<string>BNDL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>2.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>29B</string>
-	<key>CFBundleShortVersionString</key>
-	<string>2.0</string>
+	<string>29C</string>
 	<key>QSActions</key>
 	<dict>
 		<key>OpenMetaAddTags</key>
 		<dict>
-			<key>name</key>
-			<string>Add Tags…</string>
-			<key>description</key>
-			<string>Add Tags…</string>
-			<key>directTypes</key>
-			<array>
-				<string>NSFilenamesPboardType</string>
-			</array>
-			<key>indirectTypes</key>
-			<array>
-				<string>NSStringPboardType</string>
-			</array>
-			<key>indirectOptional</key>
-			<false/>
 			<key>actionClass</key>
 			<string>OpenMetaFileTaggingAction</string>
 			<key>actionSelector</key>
 			<string>addToFiles:tagList:</string>
-		</dict>
-		<key>OpenMetaRemoveTags</key>
-		<dict>
-			<key>name</key>
-			<string>Remove Tags…</string>
 			<key>description</key>
-			<string>Remove Tags…</string>
+			<string>Add Tags…</string>
 			<key>directTypes</key>
 			<array>
 				<string>NSFilenamesPboardType</string>
-			</array>
-			<key>indirectTypes</key>
-			<array>
-				<string>OpenMetaTag</string>
 			</array>
 			<key>indirectOptional</key>
 			<false/>
-			<key>actionClass</key>
-			<string>OpenMetaFileTaggingAction</string>
-			<key>actionSelector</key>
-			<string>removeFromFiles:tags:</string>
-		</dict>
-		<key>OpenMetaSetTags</key>
-		<dict>
-			<key>name</key>
-			<string>Set Tags…</string>
-			<key>description</key>
-			<string>Set Tags…</string>
-			<key>directTypes</key>
-			<array>
-				<string>NSFilenamesPboardType</string>
-			</array>
 			<key>indirectTypes</key>
 			<array>
 				<string>NSStringPboardType</string>
 			</array>
-			<key>indirectOptional</key>
-			<false/>
-			<key>actionClass</key>
-			<string>OpenMetaFileTaggingAction</string>
-			<key>actionSelector</key>
-			<string>setToFiles:tagList:</string>
+			<key>name</key>
+			<string>Add Tags…</string>
 		</dict>
 		<key>OpenMetaClearTags</key>
 		<dict>
-			<key>name</key>
-			<string>Clear Tags</string>
-			<key>description</key>
-			<string>Clear Tags</string>
-			<key>directTypes</key>
-			<array>
-				<string>NSFilenamesPboardType</string>
-			</array>
 			<key>actionClass</key>
 			<string>OpenMetaFileTaggingAction</string>
 			<key>actionSelector</key>
 			<string>clearTagsFromFiles:</string>
+			<key>description</key>
+			<string>Clear Tags</string>
+			<key>directTypes</key>
+			<array>
+				<string>NSFilenamesPboardType</string>
+			</array>
+			<key>name</key>
+			<string>Clear Tags</string>
+		</dict>
+		<key>OpenMetaRemoveTags</key>
+		<dict>
+			<key>actionClass</key>
+			<string>OpenMetaFileTaggingAction</string>
+			<key>actionSelector</key>
+			<string>removeFromFiles:tags:</string>
+			<key>description</key>
+			<string>Remove Tags…</string>
+			<key>directTypes</key>
+			<array>
+				<string>NSFilenamesPboardType</string>
+			</array>
+			<key>indirectOptional</key>
+			<false/>
+			<key>indirectTypes</key>
+			<array>
+				<string>OpenMetaTag</string>
+			</array>
+			<key>name</key>
+			<string>Remove Tags…</string>
+		</dict>
+		<key>OpenMetaSetTags</key>
+		<dict>
+			<key>actionClass</key>
+			<string>OpenMetaFileTaggingAction</string>
+			<key>actionSelector</key>
+			<string>setToFiles:tagList:</string>
+			<key>description</key>
+			<string>Set Tags…</string>
+			<key>directTypes</key>
+			<array>
+				<string>NSFilenamesPboardType</string>
+			</array>
+			<key>indirectOptional</key>
+			<false/>
+			<key>indirectTypes</key>
+			<array>
+				<string>NSStringPboardType</string>
+			</array>
+			<key>name</key>
+			<string>Set Tags…</string>
 		</dict>
 		<key>OpenMetaShowTags</key>
 		<dict>
-			<key>name</key>
-			<string>Show Tags</string>
+			<key>actionClass</key>
+			<string>OpenMetaFileTaggingAction</string>
+			<key>actionSelector</key>
+			<string>showTagsForFiles:</string>
 			<key>description</key>
 			<string>Show Tags</string>
 			<key>directTypes</key>
 			<array>
 				<string>NSFilenamesPboardType</string>
 			</array>
-			<key>actionClass</key>
-			<string>OpenMetaFileTaggingAction</string>
-			<key>actionSelector</key>
-			<string>showTagsForFiles:</string>
+			<key>name</key>
+			<string>Show Tags</string>
 		</dict>
 	</dict>
 	<key>QSPlugIn</key>
@@ -145,10 +145,10 @@
 			<string>QSPresetOpenMetaTags</string>
 			<key>enabled</key>
 			<true/>
-			<key>name</key>
-			<string>OpenMeta Tags</string>
 			<key>icon</key>
 			<string>OpenMetaTagIcon</string>
+			<key>name</key>
+			<string>OpenMeta Tags</string>
 			<key>source</key>
 			<string>OpenMetaFileTaggingSource</string>
 		</dict>
