@@ -12,6 +12,12 @@
 
 @implementation OpenMetaFileTaggingSource
 
+- (BOOL)indexIsValidFromDate:(NSDate *)indexDate forEntry:(NSDictionary *)theEntry
+{
+    // always rescan to pick up recent changes
+    return NO;
+}
+
 - (NSArray *)objectsForEntry:(NSDictionary *)entry
 {
     NSSet *tagNames = [[OpenMetaHandler sharedHandler] allTagNames];
