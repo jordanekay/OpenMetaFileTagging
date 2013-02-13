@@ -164,6 +164,11 @@
 		<array>
 			<string>com.ironic.tagit</string>
 		</array>
+		<key>relatedPaths</key>
+		<array>
+			<string>/usr/local/bin/openmeta</string>
+			<string>/usr/bin/openmeta</string>
+		</array>
 	</dict>
 	<key>QSPresetAdditions</key>
 	<array>
