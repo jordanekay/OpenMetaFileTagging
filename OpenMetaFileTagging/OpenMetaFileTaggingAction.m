@@ -60,7 +60,7 @@
 {
     NSMutableArray *tagNames = [NSMutableArray array];
     for(QSObject *tag in [tags splitObjects]) {
-        [tagNames addObject:[tag name]];
+        [tagNames addObject:[tag objectForType:OPENMETA_TAG]];
     }
     for(QSObject *file in [files splitObjects]) {
         [[OpenMetaHandler sharedHandler] removeTags:tagNames fromFile:[file objectForType:NSFilenamesPboardType]];
