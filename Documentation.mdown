@@ -4,7 +4,7 @@ The OpenMeta File Tagging Plugin for Quicksilver provides an interface for addin
 
 ## Source ##
 
-The plugin adds all of the user’s OpenMeta tags to Quicksilver’s catalog. As a Quicksilver object, an OpenMeta tag is treated like a folder: its children objects are its contents, accessed by drilling down into the tag. A tag’s contents consist of all files tagged with it, plus every other tag belonging to these files.
+The plugin adds all of the user’s OpenMeta tags to Quicksilver’s catalog. An OpenMeta tag in Quicksilver is treated like a folder: its children are its contents, accessed by drilling down into the tag with → or /. A tag’s contents consist of all files tagged with it, plus every other tag belonging to these files.
 
 ## Search ##
 
@@ -18,9 +18,13 @@ When performing such a compound tag query, you can keep track of the current sea
 
 All of the expected tagging actions are made available by the plugin. Users can add tags to files, remove tags from files, set the tags of files to a different set, clear all tags from files, and show the tags of files. These actions can be performed on a single file or multiple files, thanks to Quicksilver’s multiple selection support using the comma key. Tags can be added to or removed from multiple files at a time, and the user can show all the tags that a group of files has in common. Showing the tags for a file or files will bring up a list of the tags in the Quicksilver’s direct object pane, ready to be explored. A similar interface is used for removing tags from files, presenting a list of that file’s current tags (or shared tags for multiple files).
 
+In addition to operating on multiple files, you can use multiple tags in an operation. A list of appropriate tags should appear in the third pane. You can enter a new tag by switching to text-entry mode. Multiple tags can be selected with the comma trick or entered in text-entry mode by separating them with commas.
+
+Tags can contain almost anything other than comma.
+
 ## Implementation ##
 
-The plugin hooks into the extended file attributes (with xattr) and Spotlight search capabilities (using MDQuery) of the Mac OS X filesystem directly; it does not require the OpenMeta command-line tool to be installed. As such, it should work right out of the box, allowing users to start tagging and finding files with OpenMeta even if they have never used the system before. This also allows performance to benefit from all actions being carried out directly at the xattr or MDQuery level, with no intermediary tools. There is no noticeable lag in searching or tagging, regardless of the complexity or size of the query or file list.
+The plugin hooks into the extended file attributes (with `xattr`) and Spotlight search capabilities (using `MDQuery`) of the Mac OS X filesystem directly; it does not require the OpenMeta command-line tool to be installed. As such, it should work right out of the box, allowing users to start tagging and finding files with OpenMeta even if they have never used the system before. This also allows performance to benefit from all actions being carried out directly at the `xattr` or `MDQuery` level, with no intermediary tools. There is no noticeable lag in searching or tagging, regardless of the complexity or size of the query or file list.
 
 ## Further Work ##
 
