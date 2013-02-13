@@ -7,6 +7,7 @@
 
 #import "OpenMetaHandler.h"
 #import "OpenMetaFileTaggingSource.h"
+#import "QSObject+OpenMeta.h"
 
 #define OPENMETA_TAG_ICON [QSResourceManager imageNamed:@"OpenMetaTagIcon"]
 
@@ -23,10 +24,7 @@
     NSSet *tagNames = [[OpenMetaHandler sharedHandler] allTagNames];
     NSMutableArray *tags = [NSMutableArray array];
     for(NSString *tagName in tagNames) {
-        QSObject *tag = [QSObject objectWithName:tagName];
-        [tag setIdentifier:[NSString stringWithFormat:@"%@:%@", OPENMETA_TAG, tagName]];
-        [tag setObject:tagName forType:OPENMETA_TAG];
-        [tag setPrimaryType:OPENMETA_TAG];
+        QSObject *tag = [QSObject openMetaTagWithName:tagName];
         [tags addObject:tag];
     }
     return tags;

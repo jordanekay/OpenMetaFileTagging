@@ -7,6 +7,7 @@
 
 #import "OpenMetaHandler.h"
 #import "OpenMetaFileTaggingAction.h"
+#import "QSObject+OpenMeta.h"
 
 #define ADD_TAGS_ACTION @"OpenMetaAddTags"
 #define REMOVE_TAGS_ACTION @"OpenMetaRemoveTags"
@@ -33,8 +34,7 @@
     NSMutableArray *tags = [NSMutableArray array];
     NSArray *tagNames = [self sharedTagNamesForFiles:files];
     for(NSString *tagName in tagNames) {
-        QSObject *tag = [QSObject objectWithType:OPENMETA_TAG value:tagName name:tagName];
-        [tag setIdentifier:[NSString stringWithFormat:@"%@:%@", OPENMETA_TAG, tagName]];
+        QSObject *tag = [QSObject openMetaTagWithName:tagName];
         [tags addObject:tag];
     }
     return tags;
