@@ -60,7 +60,7 @@ NSString *const kOpenmetaTagXAttrKeyword = @"com.apple.metadata:kMDItemOMUserTag
     NSMutableArray *objects = [NSMutableArray arrayWithArray:[self filesWithTagList:tagList]];
     NSMutableArray *relatedTags = [NSMutableArray array];
     
-    NSArray *tagNames = [tagList componentsSeparatedByString:@", "];
+    NSArray *tagNames = [self tagsFromString:tagList];
     NSArray *relatedTagNames = [self relatedTagNamesForTagList:tagList];
     for(NSString *tagName in relatedTagNames) {
         if(![tagNames containsObject:tagName]) {
@@ -105,11 +105,19 @@ NSString *const kOpenmetaTagXAttrKeyword = @"com.apple.metadata:kMDItemOMUserTag
     [self _setValue:tags forKey:kOpenmetaTagXAttrKeyword atPath:filePath];
 }
 
+- (NSArray *)tagsFromString:(NSString *)tagList
+{
+    // get tags separated by ','
+    NSArray *rawTags = [tagList componentsSeparatedByString:@","];
+    // return tags without leading and trailing whitespace
+    return [rawTags arrayByPerformingSelector:@selector(stringByTrimmingCharactersInSet:) withObject:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+}
+
 #pragma mark MDQuery
 
 - (NSString *)_queryStringForTagList:(NSString *)tagList
 {
-    NSArray *tagNames = [tagList componentsSeparatedByString:@", "];
+    NSArray *tagNames = [self tagsFromString:tagList];
     NSMutableArray *clauses = [NSMutableArray array];
     for(NSString *tagName in tagNames) {
         [clauses addObject:[NSString stringWithFormat:@"%@ == '%@'", kOpenmetaTagKeyword, tagName]];

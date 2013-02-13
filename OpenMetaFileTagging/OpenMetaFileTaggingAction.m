@@ -50,7 +50,7 @@
 - (QSObject *)addToFiles:(QSObject *)files tagList:(QSObject *)tagList
 {
     for(QSObject *file in [files splitObjects]) {
-        NSArray *tagNames = [[tagList name] componentsSeparatedByString:@", "];
+        NSArray *tagNames = [[OpenMetaHandler sharedHandler] tagsFromString:[tagList stringValue]];
         [[OpenMetaHandler sharedHandler] addTags:tagNames toFile:[file objectForType:NSFilenamesPboardType]];
     }
     return nil;
@@ -70,9 +70,10 @@
 
 - (QSObject *)setToFiles:(QSObject *)files tagList:(QSObject *)tagList
 {
+    OpenMetaHandler *OMHandler = [OpenMetaHandler sharedHandler];
     for(QSObject *file in [files splitObjects]) {
-        NSArray *tags = [[tagList name] componentsSeparatedByString:@", "];
-        [[OpenMetaHandler sharedHandler] setTags:tags forFile:[file objectForType:NSFilenamesPboardType]];
+        NSArray *tags = [OMHandler tagsFromString:[tagList stringValue]];
+        [OMHandler setTags:tags forFile:[file objectForType:NSFilenamesPboardType]];
     }
     return nil;
 }

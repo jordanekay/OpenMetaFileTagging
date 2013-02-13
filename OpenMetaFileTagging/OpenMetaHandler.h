@@ -24,5 +24,6 @@ typedef void(^ OpenMetaQueryBlock)(MDQueryRef query, CFIndex i);
 - (void)addTags:(NSArray *)tags toFile:(NSString *)filePath;
 - (void)removeTags:(NSArray *)tags fromFile:(NSString *)filePath;
 - (void)setTags:(NSArray *)tags forFile:(NSString *)filePath;
+- (NSArray *)tagsFromString:(NSString *)tagList;
 
 @end
