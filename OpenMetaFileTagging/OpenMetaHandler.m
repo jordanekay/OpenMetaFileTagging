@@ -64,9 +64,12 @@ NSString *const kOpenmetaTagXAttrKeyword = @"com.apple.metadata:kMDItemOMUserTag
     NSArray *relatedTagNames = [self relatedTagNamesForTagList:tagList];
     for(NSString *tagName in relatedTagNames) {
         if(![tagNames containsObject:tagName]) {
+            NSString *tagListString = [tagList stringByAppendingFormat:@", %@", tagName];
             QSObject *tag = [QSObject objectWithName:tagName];
-            [tag setObject:[tagList stringByAppendingFormat:@", %@", tagName] forType:OPENMETA_TAG];
-            [tag setIdentifier:[NSString stringWithFormat:@"OpenMetaTransientTag:%@", tagName]];
+            [tag setObject:tagName forType:OPENMETA_TAG];
+            [tag setDetails:tagListString];
+            [tag setObject:tagListString forCache:OPENMETA_TAG_LIST];
+            [tag setIdentifier:[NSString stringWithFormat:@"%@:%@", OPENMETA_TAG_TRANSIENT, tagName]];
             [tag setPrimaryType:OPENMETA_TAG];
             [relatedTags addObject:tag];
         }

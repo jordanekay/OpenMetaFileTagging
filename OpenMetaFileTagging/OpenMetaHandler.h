@@ -8,6 +8,8 @@
 #import <Foundation/Foundation.h>
 
 #define OPENMETA_TAG @"OpenMetaTag"
+#define OPENMETA_TAG_TRANSIENT @"OpenMetaTransientTag"
+#define OPENMETA_TAG_LIST @"OpenMetaTagList"
 
 typedef void(^ OpenMetaQueryBlock)(MDQueryRef query, CFIndex i);
 

@@ -35,7 +35,13 @@
 - (BOOL)loadChildrenForObject:(QSObject *)object
 {
     NSMutableArray *children = [NSMutableArray array];
-    [children addObjectsFromArray:[[OpenMetaHandler sharedHandler] filesAndRelatedTagsForTagList:[object objectForType:OPENMETA_TAG]]];
+    // check for transient tag when navigating
+    NSString *tagListString = [object objectForCache:OPENMETA_TAG_LIST];
+    if (!tagListString) {
+        // a normal tag from the catalog
+        tagListString = [object objectForType:OPENMETA_TAG];
+    }
+    [children addObjectsFromArray:[[OpenMetaHandler sharedHandler] filesAndRelatedTagsForTagList:tagListString]];
     [object setChildren:children];
     return YES;
 }
