@@ -14,6 +14,7 @@
 		45A647BC15BD3A6B009E4436 /* OpenMetaHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A647BB15BD3A6B009E4436 /* OpenMetaHandler.m */; };
 		D409106816CAE5E700AC69C1 /* OpenMetaLogoIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = D409106616CAE5E700AC69C1 /* OpenMetaLogoIcon.png */; };
 		D409106916CAE5E700AC69C1 /* OpenMetaLogoIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D409106716CAE5E700AC69C1 /* OpenMetaLogoIcon@2x.png */; };
+		D494321D16CBF3F800B59633 /* QSObject+OpenMeta.m in Sources */ = {isa = PBXBuildFile; fileRef = D494321C16CBF3F800B59633 /* QSObject+OpenMeta.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,8 @@
 		45A647BB15BD3A6B009E4436 /* OpenMetaHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenMetaHandler.m; sourceTree = "<group>"; };
 		D409106616CAE5E700AC69C1 /* OpenMetaLogoIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OpenMetaLogoIcon.png; sourceTree = "<group>"; };
 		D409106716CAE5E700AC69C1 /* OpenMetaLogoIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "OpenMetaLogoIcon@2x.png"; sourceTree = "<group>"; };
+		D494321B16CBF3F800B59633 /* QSObject+OpenMeta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "QSObject+OpenMeta.h"; sourceTree = "<group>"; };
+		D494321C16CBF3F800B59633 /* QSObject+OpenMeta.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "QSObject+OpenMeta.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +87,8 @@
 				45A647AD15BD31E1009E4436 /* OpenMetaFileTaggingSource.m */,
 				45A647BA15BD3A6B009E4436 /* OpenMetaHandler.h */,
 				45A647BB15BD3A6B009E4436 /* OpenMetaHandler.m */,
+				D494321B16CBF3F800B59633 /* QSObject+OpenMeta.h */,
+				D494321C16CBF3F800B59633 /* QSObject+OpenMeta.m */,
 				45A6479E15BD31E1009E4436 /* Configuration */,
 				45A6479915BD31E1009E4436 /* Supporting Files */,
 			);
@@ -206,6 +211,7 @@
 				45A647AB15BD31E1009E4436 /* OpenMetaFileTaggingAction.m in Sources */,
 				45A647AE15BD31E1009E4436 /* OpenMetaFileTaggingSource.m in Sources */,
 				45A647BC15BD3A6B009E4436 /* OpenMetaHandler.m in Sources */,
+				D494321D16CBF3F800B59633 /* QSObject+OpenMeta.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
