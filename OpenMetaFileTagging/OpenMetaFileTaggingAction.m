@@ -12,6 +12,7 @@
 #define ADD_TAGS_ACTION @"OpenMetaAddTags"
 #define REMOVE_TAGS_ACTION @"OpenMetaRemoveTags"
 #define SET_TAGS_ACTION @"OpenMetaSetTags"
+#define OPENMETA_CATALOG_PRESET @"QSPresetOpenMetaTags"
 
 @implementation OpenMetaFileTaggingAction
 
@@ -53,6 +54,7 @@
         NSArray *tagNames = [[OpenMetaHandler sharedHandler] tagsFromString:[tagList stringValue]];
         [[OpenMetaHandler sharedHandler] addTags:tagNames toFile:[file objectForType:NSFilenamesPboardType]];
     }
+    [self addCatalogTags:tagList];
     return nil;
 }
 
@@ -65,6 +67,7 @@
     for(QSObject *file in [files splitObjects]) {
         [[OpenMetaHandler sharedHandler] removeTags:tagNames fromFile:[file objectForType:NSFilenamesPboardType]];
     }
+    [self updateTagsOnDisk];
     return nil;
 }
 
@@ -75,12 +78,14 @@
         NSArray *tags = [OMHandler tagsFromString:[tagList stringValue]];
         [OMHandler setTags:tags forFile:[file objectForType:NSFilenamesPboardType]];
     }
+    [self addCatalogTags:tagList];
     return nil;
 }
 
 - (QSObject *)clearTagsFromFiles:(QSObject *)files
 {
     [self setToFiles:files tagList:nil];
+    [self updateTagsOnDisk];
     return nil;
 }
 
@@ -98,5 +103,26 @@
     }
     return indirectObjects;
 } 
+
+- (void)addCatalogTags:(QSObject *)tags
+{
+    // only rescan the catalog if the action created a new tag
+    NSMutableArray *tagNames = [[tags splitObjects] arrayByPerformingSelector:@selector(objectForType:) withObject:OPENMETA_TAG];
+    NSArray *allTags = [[QSLib arrayForType:OPENMETA_TAG] mutableCopy];
+    NSArray *allTagNames = [allTags arrayByPerformingSelector:@selector(objectForType:) withObject:OPENMETA_TAG];
+    [tagNames removeObjectsInArray:allTagNames];
+    if ([tagNames count]) {
+        // at least one new tag - rescan
+        [self updateTagsOnDisk];
+    }
+}
+
+- (void)updateTagsOnDisk
+{
+    // wait a few seconds for changes to appear in the filesystem
+    sleep(4);
+    // rescan the catalog entry
+    [[NSNotificationCenter defaultCenter] postNotificationName:QSCatalogEntryInvalidated object:OPENMETA_CATALOG_PRESET];
+}
 
 @end
