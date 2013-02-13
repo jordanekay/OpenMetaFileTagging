@@ -66,7 +66,7 @@ NSString *const kOpenmetaTagXAttrKeyword = @"com.apple.metadata:kMDItemOMUserTag
         if(![tagNames containsObject:tagName]) {
             QSObject *tag = [QSObject objectWithName:tagName];
             [tag setObject:[tagList stringByAppendingFormat:@", %@", tagName] forType:OPENMETA_TAG];
-            [tag setIdentifier:[NSString stringWithFormat:@"%@:%@", OPENMETA_TAG, tagName]];
+            [tag setIdentifier:[NSString stringWithFormat:@"OpenMetaTransientTag:%@", tagName]];
             [tag setPrimaryType:OPENMETA_TAG];
             [relatedTags addObject:tag];
         }
