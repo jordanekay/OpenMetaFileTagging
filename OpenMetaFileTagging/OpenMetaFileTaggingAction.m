@@ -50,8 +50,9 @@
 
 - (QSObject *)addToFiles:(QSObject *)files tagList:(QSObject *)tagList
 {
+    NSArray *tagsToAdd = [self tagObjectsFromMixedObject:tagList];
+    NSArray *tagNames = [tagsToAdd arrayByPerformingSelector:@selector(objectForType:) withObject:OPENMETA_TAG];
     for(QSObject *file in [files splitObjects]) {
-        NSArray *tagNames = [[OpenMetaHandler sharedHandler] tagsFromString:[tagList stringValue]];
         [[OpenMetaHandler sharedHandler] addTags:tagNames toFile:[file objectForType:NSFilenamesPboardType]];
     }
     [self addCatalogTags:tagList];
@@ -73,10 +74,11 @@
 
 - (QSObject *)setToFiles:(QSObject *)files tagList:(QSObject *)tagList
 {
+    NSArray *tagsToSet = [self tagObjectsFromMixedObject:tagList];
+    NSArray *tagNames = [tagsToSet arrayByPerformingSelector:@selector(objectForType:) withObject:OPENMETA_TAG];
     OpenMetaHandler *OMHandler = [OpenMetaHandler sharedHandler];
     for(QSObject *file in [files splitObjects]) {
-        NSArray *tags = [OMHandler tagsFromString:[tagList stringValue]];
-        [OMHandler setTags:tags forFile:[file objectForType:NSFilenamesPboardType]];
+        [OMHandler setTags:tagNames forFile:[file objectForType:NSFilenamesPboardType]];
     }
     [self addCatalogTags:tagList];
     return nil;
@@ -91,17 +93,37 @@
 
 - (NSArray *)validIndirectObjectsForAction:(NSString *)action directObject:(QSObject *)files 
 { 
-    NSArray *indirectObjects;
     if([action isEqualToString:REMOVE_TAGS_ACTION]) {
-        indirectObjects = [self tagsForFiles:files];
-    } else {
-        NSString *currentValue = @"";
-        if([action isEqualToString:SET_TAGS_ACTION]) {
-            currentValue = [[self sharedTagNamesForFiles:files] componentsJoinedByString:@", "];
+        // offer to remove tags common to all selected files
+        NSMutableArray *tagsInCommon = [NSMutableArray array];
+        for (NSString *tagName in [self sharedTagNamesForFiles:files]) {
+            QSObject *tag = [QSObject openMetaTagWithName:tagName];
+            [tagsInCommon addObject:tag];
         }
-        indirectObjects = [NSArray arrayWithObject:[QSObject textProxyObjectWithDefaultValue:currentValue]]; 
+        return tagsInCommon;
+    } else {
+        NSArray *allTags = [QSLib scoredArrayForType:OPENMETA_TAG];
+        if (![allTags count]) {
+            // no existing tags - text entry mode
+            return [NSArray arrayWithObject:[QSObject textProxyObjectWithDefaultValue:@"tag name"]];
+        }
+        if([action isEqualToString:SET_TAGS_ACTION]) {
+            // offer to set any known tag
+            return allTags;
+        } else if ([action isEqualToString:ADD_TAGS_ACTION]) {
+            // offer to add tags not already assigned to the selected files
+            NSMutableSet *allTagNames = [NSMutableSet setWithArray:[allTags arrayByPerformingSelector:@selector(objectForType:) withObject:OPENMETA_TAG]];
+            NSSet *tagsInCommon = [NSSet setWithArray:[self sharedTagNamesForFiles:files]];
+            [allTagNames minusSet:tagsInCommon];
+            NSMutableArray *newTags = [NSMutableArray array];
+            for (NSString *tagName in allTagNames) {
+                QSObject *tag = [QSObject openMetaTagWithName:tagName];
+                [newTags addObject:tag];
+            }
+            return newTags;
+        }
     }
-    return indirectObjects;
+    return nil;
 } 
 
 - (void)addCatalogTags:(QSObject *)tags
@@ -123,6 +145,27 @@
     sleep(4);
     // rescan the catalog entry
     [[NSNotificationCenter defaultCenter] postNotificationName:QSCatalogEntryInvalidated object:OPENMETA_CATALOG_PRESET];
+}
+
+- (NSArray *)tagObjectsFromMixedObject:(QSObject *)inputTags
+{
+    // we could get tags from the catalog, or tags typed by hand
+    // so turn them all into tag objects and combine them
+    NSMutableSet *tagObjects = [NSMutableSet set];
+    for (QSObject *tag in [inputTags splitObjects]) {
+        if ([[tag primaryType] isEqualToString:OPENMETA_TAG]) {
+            [tagObjects addObject:tag];
+        } else {
+            // tags typed by hand
+            // could be one tag per string, or several in one comma-delimited string
+            NSArray *tagNames = [[OpenMetaHandler sharedHandler] tagsFromString:[tag stringValue]];
+            for (NSString *tagName in tagNames) {
+                QSObject *manualTag = [QSObject openMetaTagWithName:tagName];
+                [tagObjects addObject:manualTag];
+            }
+        }
+    }
+    return [tagObjects allObjects];
 }
 
 @end
