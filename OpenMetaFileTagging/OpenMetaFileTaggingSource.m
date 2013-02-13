@@ -24,7 +24,7 @@
     NSMutableArray *tags = [NSMutableArray array];
     for(NSString *tagName in tagNames) {
         QSObject *tag = [QSObject objectWithName:tagName];
-        [tag setIdentifier:tagName];
+        [tag setIdentifier:[NSString stringWithFormat:@"%@:%@", OPENMETA_TAG, tagName]];
         [tag setObject:tagName forType:OPENMETA_TAG];
         [tag setPrimaryType:OPENMETA_TAG];
         [tags addObject:tag];

@@ -34,7 +34,7 @@
     NSArray *tagNames = [self sharedTagNamesForFiles:files];
     for(NSString *tagName in tagNames) {
         QSObject *tag = [QSObject objectWithType:OPENMETA_TAG value:tagName name:tagName];
-        [tag setIdentifier:tagName];
+        [tag setIdentifier:[NSString stringWithFormat:@"%@:%@", OPENMETA_TAG, tagName]];
         [tags addObject:tag];
     }
     return tags;
