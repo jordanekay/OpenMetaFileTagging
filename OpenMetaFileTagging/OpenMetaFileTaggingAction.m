@@ -50,12 +50,12 @@
 
 - (QSObject *)addToFiles:(QSObject *)files tagList:(QSObject *)tagList
 {
-    NSArray *tagsToAdd = [self tagObjectsFromMixedObject:tagList];
-    NSArray *tagNames = [tagsToAdd arrayByPerformingSelector:@selector(objectForType:) withObject:OPENMETA_TAG];
+    QSObject *tagsToAdd = [self tagObjectFromMixedObject:tagList];
+    NSArray *tagNames = [tagsToAdd arrayForType:OPENMETA_TAG];
     for(QSObject *file in [files splitObjects]) {
         [[OpenMetaHandler sharedHandler] addTags:tagNames toFile:[file objectForType:NSFilenamesPboardType]];
     }
-    [self addCatalogTags:tagList];
+    [self addCatalogTags:tagsToAdd];
     return nil;
 }
 
@@ -74,13 +74,13 @@
 
 - (QSObject *)setToFiles:(QSObject *)files tagList:(QSObject *)tagList
 {
-    NSArray *tagsToSet = [self tagObjectsFromMixedObject:tagList];
-    NSArray *tagNames = [tagsToSet arrayByPerformingSelector:@selector(objectForType:) withObject:OPENMETA_TAG];
+    QSObject *tagsToSet = [self tagObjectFromMixedObject:tagList];
+    NSArray *tagNames = [tagsToSet arrayForType:OPENMETA_TAG];
     OpenMetaHandler *OMHandler = [OpenMetaHandler sharedHandler];
     for(QSObject *file in [files splitObjects]) {
         [OMHandler setTags:tagNames forFile:[file objectForType:NSFilenamesPboardType]];
     }
-    [self addCatalogTags:tagList];
+    [self addCatalogTags:tagsToSet];
     return nil;
 }
 
@@ -129,14 +129,15 @@
 - (void)addCatalogTags:(QSObject *)tags
 {
     // only rescan the catalog if the action created a new tag
-    NSMutableArray *tagNames = [[tags splitObjects] arrayByPerformingSelector:@selector(objectForType:) withObject:OPENMETA_TAG];
-    NSArray *allTags = [[QSLib arrayForType:OPENMETA_TAG] mutableCopy];
+    NSMutableArray *tagNames = [[tags arrayForType:OPENMETA_TAG] mutableCopy];
+    NSArray *allTags = [QSLib arrayForType:OPENMETA_TAG];
     NSArray *allTagNames = [allTags arrayByPerformingSelector:@selector(objectForType:) withObject:OPENMETA_TAG];
     [tagNames removeObjectsInArray:allTagNames];
     if ([tagNames count]) {
         // at least one new tag - rescan
         [self updateTagsOnDisk];
     }
+    [tagNames release];
 }
 
 - (void)updateTagsOnDisk
@@ -147,7 +148,7 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:QSCatalogEntryInvalidated object:OPENMETA_CATALOG_PRESET];
 }
 
-- (NSArray *)tagObjectsFromMixedObject:(QSObject *)inputTags
+- (QSObject *)tagObjectFromMixedObject:(QSObject *)inputTags
 {
     // we could get tags from the catalog, or tags typed by hand
     // so turn them all into tag objects and combine them
@@ -165,7 +166,7 @@
             }
         }
     }
-    return [tagObjects allObjects];
+    return [QSObject objectByMergingObjects:[tagObjects allObjects]];
 }
 
 @end
