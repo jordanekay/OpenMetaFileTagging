@@ -7,20 +7,22 @@
 
 #import "OpenMetaHandler.h"
 #import "OpenMetaFileTaggingSource.h"
-
-#define OPENMETA_TAG_ICON [QSResourceManager imageNamed:@"OpenMetaTagIcon"]
+#import "QSObject+OpenMeta.h"
 
 @implementation OpenMetaFileTaggingSource
+
+- (BOOL)indexIsValidFromDate:(NSDate *)indexDate forEntry:(NSDictionary *)theEntry
+{
+    // always rescan to pick up recent changes
+    return NO;
+}
 
 - (NSArray *)objectsForEntry:(NSDictionary *)entry
 {
     NSSet *tagNames = [[OpenMetaHandler sharedHandler] allTagNames];
     NSMutableArray *tags = [NSMutableArray array];
     for(NSString *tagName in tagNames) {
-        QSObject *tag = [QSObject objectWithName:tagName];
-        [tag setIdentifier:tagName];
-        [tag setObject:tagName forType:OPENMETA_TAG];
-        [tag setPrimaryType:OPENMETA_TAG];
+        QSObject *tag = [QSObject openMetaTagWithName:tagName];
         [tags addObject:tag];
     }
     return tags;
@@ -29,7 +31,13 @@
 - (BOOL)loadChildrenForObject:(QSObject *)object
 {
     NSMutableArray *children = [NSMutableArray array];
-    [children addObjectsFromArray:[[OpenMetaHandler sharedHandler] filesAndRelatedTagsForTagList:[object objectForType:OPENMETA_TAG]]];
+    // check for transient tag when navigating
+    NSString *tagListString = [object objectForCache:OPENMETA_TAG_LIST];
+    if (!tagListString) {
+        // a normal tag from the catalog
+        tagListString = [object objectForType:OPENMETA_TAG];
+    }
+    [children addObjectsFromArray:[[OpenMetaHandler sharedHandler] filesAndRelatedTagsForTagList:tagListString]];
     [object setChildren:children];
     return YES;
 }

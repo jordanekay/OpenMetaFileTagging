@@ -8,6 +8,9 @@
 #import <Foundation/Foundation.h>
 
 #define OPENMETA_TAG @"OpenMetaTag"
+#define OPENMETA_TAG_TRANSIENT @"OpenMetaTransientTag"
+#define OPENMETA_TAG_LIST @"OpenMetaTagList"
+#define OPENMETA_TAG_ICON [QSResourceManager imageNamed:@"OpenMetaTagIcon"]
 
 typedef void(^ OpenMetaQueryBlock)(MDQueryRef query, CFIndex i);
 
@@ -22,5 +25,6 @@ typedef void(^ OpenMetaQueryBlock)(MDQueryRef query, CFIndex i);
 - (void)addTags:(NSArray *)tags toFile:(NSString *)filePath;
 - (void)removeTags:(NSArray *)tags fromFile:(NSString *)filePath;
 - (void)setTags:(NSArray *)tags forFile:(NSString *)filePath;
+- (NSArray *)tagsFromString:(NSString *)tagList;
 
 @end
