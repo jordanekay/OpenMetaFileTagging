@@ -36,6 +36,9 @@ NSString *const kOpenmetaTagXAttrKeyword = @"com.apple.metadata:kMDItemOMUserTag
 
 - (NSArray *)filesWithTagList:(NSString *)tagList
 {
+    if (!tagList) {
+        return nil;
+    }
     NSString *queryString = [self _queryStringForTagList:tagList];
     NSArray *types = [NSArray arrayWithObjects:(NSString *)kMDItemPath, (NSString *)kMDItemFSName, nil];
     
@@ -57,6 +60,9 @@ NSString *const kOpenmetaTagXAttrKeyword = @"com.apple.metadata:kMDItemOMUserTag
 
 - (NSArray *)filesAndRelatedTagsForTagList:(NSString *)tagList
 {
+    if (!tagList) {
+        return nil;
+    }
     NSMutableArray *objects = [NSMutableArray arrayWithArray:[self filesWithTagList:tagList]];
     NSMutableArray *relatedTags = [NSMutableArray array];
     
