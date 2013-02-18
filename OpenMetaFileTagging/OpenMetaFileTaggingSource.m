@@ -9,8 +9,6 @@
 #import "OpenMetaFileTaggingSource.h"
 #import "QSObject+OpenMeta.h"
 
-#define OPENMETA_TAG_ICON [QSResourceManager imageNamed:@"OpenMetaTagIcon"]
-
 @implementation OpenMetaFileTaggingSource
 
 - (BOOL)indexIsValidFromDate:(NSDate *)indexDate forEntry:(NSDictionary *)theEntry

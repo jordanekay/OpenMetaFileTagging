@@ -10,6 +10,7 @@
 #define OPENMETA_TAG @"OpenMetaTag"
 #define OPENMETA_TAG_TRANSIENT @"OpenMetaTransientTag"
 #define OPENMETA_TAG_LIST @"OpenMetaTagList"
+#define OPENMETA_TAG_ICON [QSResourceManager imageNamed:@"OpenMetaTagIcon"]
 
 typedef void(^ OpenMetaQueryBlock)(MDQueryRef query, CFIndex i);
 
