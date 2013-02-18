@@ -144,8 +144,17 @@
 		<key>extendedDescription</key>
 		<string>&lt;h1&gt;OpenMeta File Tagging Plugin&lt;/h1&gt;
 &lt;p&gt;The OpenMeta File Tagging Plugin for Quicksilver provides an interface for adding and removing OpenMeta tags to files, as well as browsing tags and finding all files with a certain tag or tags.&lt;/p&gt;
-&lt;h2&gt;Source&lt;/h2&gt;
+&lt;h2&gt;Catalog&lt;/h2&gt;
 &lt;p&gt;The plugin adds all of the user’s OpenMeta tags to Quicksilver’s catalog. An OpenMeta tag in Quicksilver is treated like a folder: its children are its contents, accessed by drilling down into the tag with → or /. A tag’s contents consist of all files tagged with it, plus every other tag belonging to these files.&lt;/p&gt;
+&lt;h3&gt;Custom Entries&lt;/h3&gt;
+&lt;p&gt;You can add files to the catalog if they match one or more tags.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Add a new custom catalog entry using the &lt;code&gt;+&lt;/code&gt; at the bottom of the Catalog preferences.&lt;/li&gt;
+&lt;li&gt;Select “OpenMeta Tags” from the pop-up menu.&lt;/li&gt;
+&lt;li&gt;Enter one or more tags in the token field.&lt;/li&gt;
+&lt;li&gt;Optionally, change the name of the entry in the list.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Files matching all listed tags will be included in the global catalog.&lt;/p&gt;
 &lt;h2&gt;Search&lt;/h2&gt;
 &lt;p&gt;Use the OpenMeta File Tagging Plugin to search for files by tag. Drill down into a tag to see an alphabetical listing of all files so tagged. At the end of this list is a list of the other tags for these files. Refine your search by drilling down into one of these tags and filter even further. With this mechanism you can arbitrarily extend a query to involve any number of tags.&lt;/p&gt;
 &lt;p&gt;For example, to see all files tagged with the tag “foo,” bring up the “foo” tag object and drill down into it. Say some of these files are also tagged with “bar,” and still others, “baz”; these two will be listed at the bottom, after the list of files. Drilling down into one will further filter the results to only show files with &lt;em&gt;both&lt;/em&gt; tags (files tagged with “foo” and “bar” or files tagged with “foo” and “baz”). Drilling up out of these results reverts to showing all files tagged with just “foo.”&lt;/p&gt;
@@ -204,6 +213,8 @@
 		</dict>
 		<key>QSObjectSources</key>
 		<dict>
+			<key>OpenMeta Tags</key>
+			<string>QSOMTaggedFilesSource</string>
 			<key>OpenMetaFileTaggingSource</key>
 			<string>OpenMetaFileTaggingSource</string>
 		</dict>

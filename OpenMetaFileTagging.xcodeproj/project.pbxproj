@@ -15,6 +15,8 @@
 		D409106816CAE5E700AC69C1 /* OpenMetaLogoIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = D409106616CAE5E700AC69C1 /* OpenMetaLogoIcon.png */; };
 		D409106916CAE5E700AC69C1 /* OpenMetaLogoIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D409106716CAE5E700AC69C1 /* OpenMetaLogoIcon@2x.png */; };
 		D494321D16CBF3F800B59633 /* QSObject+OpenMeta.m in Sources */ = {isa = PBXBuildFile; fileRef = D494321C16CBF3F800B59633 /* QSObject+OpenMeta.m */; };
+		D4EF507616D282E400573E80 /* QSOMTaggedFilesSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D4EF507516D282E400573E80 /* QSOMTaggedFilesSource.m */; };
+		D4EF507A16D283CB00573E80 /* QSOMTaggedFilesSource.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4EF507916D283CB00573E80 /* QSOMTaggedFilesSource.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,9 @@
 		D409106716CAE5E700AC69C1 /* OpenMetaLogoIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "OpenMetaLogoIcon@2x.png"; sourceTree = "<group>"; };
 		D494321B16CBF3F800B59633 /* QSObject+OpenMeta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "QSObject+OpenMeta.h"; sourceTree = "<group>"; };
 		D494321C16CBF3F800B59633 /* QSObject+OpenMeta.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "QSObject+OpenMeta.m"; sourceTree = "<group>"; };
+		D4EF507416D282E400573E80 /* QSOMTaggedFilesSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QSOMTaggedFilesSource.h; sourceTree = "<group>"; };
+		D4EF507516D282E400573E80 /* QSOMTaggedFilesSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QSOMTaggedFilesSource.m; sourceTree = "<group>"; };
+		D4EF507916D283CB00573E80 /* QSOMTaggedFilesSource.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QSOMTaggedFilesSource.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +94,8 @@
 				45A647BB15BD3A6B009E4436 /* OpenMetaHandler.m */,
 				D494321B16CBF3F800B59633 /* QSObject+OpenMeta.h */,
 				D494321C16CBF3F800B59633 /* QSObject+OpenMeta.m */,
+				D4EF507416D282E400573E80 /* QSOMTaggedFilesSource.h */,
+				D4EF507516D282E400573E80 /* QSOMTaggedFilesSource.m */,
 				45A6479E15BD31E1009E4436 /* Configuration */,
 				45A6479915BD31E1009E4436 /* Supporting Files */,
 			);
@@ -123,6 +130,7 @@
 			children = (
 				D409106616CAE5E700AC69C1 /* OpenMetaLogoIcon.png */,
 				D409106716CAE5E700AC69C1 /* OpenMetaLogoIcon@2x.png */,
+				D4EF507916D283CB00573E80 /* QSOMTaggedFilesSource.xib */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -182,6 +190,7 @@
 				45A6479D15BD31E1009E4436 /* InfoPlist.strings in Resources */,
 				D409106816CAE5E700AC69C1 /* OpenMetaLogoIcon.png in Resources */,
 				D409106916CAE5E700AC69C1 /* OpenMetaLogoIcon@2x.png in Resources */,
+				D4EF507A16D283CB00573E80 /* QSOMTaggedFilesSource.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,6 +221,7 @@
 				45A647AE15BD31E1009E4436 /* OpenMetaFileTaggingSource.m in Sources */,
 				45A647BC15BD3A6B009E4436 /* OpenMetaHandler.m in Sources */,
 				D494321D16CBF3F800B59633 /* QSObject+OpenMeta.m in Sources */,
+				D4EF507616D282E400573E80 /* QSOMTaggedFilesSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

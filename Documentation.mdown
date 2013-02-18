@@ -2,9 +2,20 @@
 
 The OpenMeta File Tagging Plugin for Quicksilver provides an interface for adding and removing OpenMeta tags to files, as well as browsing tags and finding all files with a certain tag or tags.
 
-## Source ##
+## Catalog ##
 
 The plugin adds all of the user’s OpenMeta tags to Quicksilver’s catalog. An OpenMeta tag in Quicksilver is treated like a folder: its children are its contents, accessed by drilling down into the tag with → or /. A tag’s contents consist of all files tagged with it, plus every other tag belonging to these files.
+
+### Custom Entries ###
+
+You can add files to the catalog if they match one or more tags.
+
+  1. Add a new custom catalog entry using the `+` at the bottom of the Catalog preferences.
+  2. Select “OpenMeta Tags” from the pop-up menu.
+  3. Enter one or more tags in the token field.
+  4. Optionally, change the name of the entry in the list.
+
+Files matching all listed tags will be included in the global catalog.
 
 ## Search ##
 
