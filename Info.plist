@@ -1,200 +1,252 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-    <dict>
-        <key>CFBundleDevelopmentRegion</key>
-        <string>English</string>
-        <key>CFBundleExecutable</key>
-        <string>${EXECUTABLE_NAME}</string>
-        <key>CFBundleIconFile</key>
-        <string></string>
-        <key>CFBundleIdentifier</key>
-        <string>com.blacktree.Quicksilver.OpenMetaFileTagging</string>
-        <key>CFBundleInfoDictionaryVersion</key>
-        <string>6.0</string>
-        <key>CFBundleName</key>
-        <string>${PRODUCT_NAME}</string>
-        <key>CFBundlePackageType</key>
-        <string>BNDL</string>
-        <key>CFBundleSignature</key>
-        <string>????</string>
-        <key>CFBundleVersion</key>
-        <string>29B</string>
-        <key>CFBundleShortVersionString</key>
-        <string>2.0</string>
-        <key>QSActions</key>
-        <dict>
-            <key>OpenMetaAddTags</key>
-            <dict>
-                <key>name</key>
-                <string>Add Tags…</string>
-                <key>description</key>
-                <string>Add Tags…</string>
-                <key>directTypes</key>
-                <array>
-                    <string>NSFilenamesPboardType</string>
-                </array>
-                <key>indirectTypes</key>
-                <array>
-                    <string>NSStringPboardType</string>
-                </array>
-                <key>indirectOptional</key>
-                <false/>
-                <key>actionClass</key>
-                <string>OpenMetaFileTaggingAction</string>
-                <key>actionSelector</key>
-                <string>addToFiles:tagList:</string>
-            </dict>
-            <key>OpenMetaRemoveTags</key>
-            <dict>
-                <key>name</key>
-                <string>Remove Tags…</string>
-                <key>description</key>
-                <string>Remove Tags…</string>
-                <key>directTypes</key>
-                <array>
-                    <string>NSFilenamesPboardType</string>
-                </array>
-                <key>indirectTypes</key>
-                <array>
-                    <string>OpenMetaTag</string>
-                </array>
-                <key>indirectOptional</key>
-                <false/>
-                <key>actionClass</key>
-                <string>OpenMetaFileTaggingAction</string>
-                <key>actionSelector</key>
-                <string>removeFromFiles:tags:</string>
-            </dict>
-            <key>OpenMetaSetTags</key>
-            <dict>
-                <key>name</key>
-                <string>Set Tags…</string>
-                <key>description</key>
-                <string>Set Tags…</string>
-                <key>directTypes</key>
-                <array>
-                    <string>NSFilenamesPboardType</string>
-                </array>
-                <key>indirectTypes</key>
-                <array>
-                    <string>NSStringPboardType</string>
-                </array>
-                <key>indirectOptional</key>
-                <false/>
-                <key>actionClass</key>
-                <string>OpenMetaFileTaggingAction</string>
-                <key>actionSelector</key>
-                <string>setToFiles:tagList:</string>
-            </dict>
-            <key>OpenMetaClearTags</key>
-            <dict>
-                <key>name</key>
-                <string>Clear Tags</string>
-                <key>description</key>
-                <string>Clear Tags</string>
-                <key>directTypes</key>
-                <array>
-                    <string>NSFilenamesPboardType</string>
-                </array>
-                <key>actionClass</key>
-                <string>OpenMetaFileTaggingAction</string>
-                <key>actionSelector</key>
-                <string>clearTagsFromFiles:</string>
-            </dict>
-            <key>OpenMetaShowTags</key>
-            <dict>
-                <key>name</key>
-                <string>Show Tags</string>
-                <key>description</key>
-                <string>Show Tags</string>
-                <key>directTypes</key>
-                <array>
-                    <string>NSFilenamesPboardType</string>
-                </array>
-                <key>actionClass</key>
-                <string>OpenMetaFileTaggingAction</string>
-                <key>actionSelector</key>
-                <string>showTagsForFiles:</string>
-            </dict>
-        </dict>
-        <key>QSPlugIn</key>
-        <dict>
-            <key>author</key>
-            <string>Jordan Kay</string>
-            <key>categories</key>
-            <array>
-                <string>Files</string>
-                <string>Search</string>
-            </array>
-            <key>description</key>
-            <string>Support for file tagging with OpenMeta</string>
-            <key>extendedDescription</key>
-            <string>Provides an interface for adding and removing OpenMeta tags to files, as well as browsing tags and finding all files with a certain tag or tags</string>
-            <key>icon</key>
-            <string>OpenMetaTagIcon</string>
-            <key>relatedBundles</key>
-            <array>
-                <string>com.blacktree.Quicksilver.OpenMetaFileTagging</string>
-            </array>
-        </dict>
-        <key>QSPresetAdditions</key>
-        <array>
-            <dict>
-                <key>ID</key>
-                <string>QSPresetOpenMetaTags</string>
-                <key>enabled</key>
-                <true/>
-                <key>name</key>
-                <string>OpenMeta Tags</string>
-                <key>icon</key>
-                <string>OpenMetaTagIcon</string>
-                <key>source</key>
-                <string>OpenMetaFileTaggingSource</string>
-            </dict>
-        </array>
-        <key>QSRegistration</key>
-        <dict>
-            <key>QSActionProviders</key>
-            <dict>
-                <key>OpenMetaFileTaggingActionProvider</key>
-                <string>OpenMetaFileTaggingActionProvider</string>
-            </dict>
-            <key>QSBundleChildHandlers</key>
-            <dict>
-                <key>com.blacktree.Quicksilver.OpenMetaFileTagging</key>
-                <string>OpenMetaFileTaggingSource</string>
-            </dict>
-            <key>QSObjectHandlers</key>
-            <dict>
-                <key>OpenMetaTag</key>
-                <string>OpenMetaFileTaggingSource</string>
-            </dict>
-            <key>QSObjectSources</key>
-            <dict>
-                <key>OpenMetaFileTaggingSource</key>
-                <string>OpenMetaFileTaggingSource</string>
-            </dict>
-            <key>QSTypeDefinitions</key>
-            <dict>
-                <key>NSFilenamesPboardType</key>
-                <dict>
-                    <key>icon</key>
-                    <string>GenericDocumentIcon</string>
-                    <key>name</key>
-                    <string>File</string>
-                </dict>
-            </dict>
-        </dict>
-        <key>QSResourceAdditions</key>
-        <dict>
-            <key>OpenMetaTagIcon</key>
-            <dict>
-                <key>bundle</key>
-                <string>com.blacktree.Quicksilver.OpenMetaFileTagging</string>
-                <key>resource</key>
-                <string>Tag.png</string>
-            </dict>
-        </dict>
-    </dict>
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>English</string>
+	<key>CFBundleDisplayName</key>
+	<string>OpenMeta</string>
+	<key>CFBundleExecutable</key>
+	<string>${EXECUTABLE_NAME}</string>
+	<key>CFBundleIconFile</key>
+	<string></string>
+	<key>CFBundleIdentifier</key>
+	<string>com.qsapp.OpenMetaFileTagging</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>OpenMeta File Tagging Plugin</string>
+	<key>CFBundlePackageType</key>
+	<string>BNDL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>2.0</string>
+	<key>CFBundleSignature</key>
+	<string>????</string>
+	<key>CFBundleVersion</key>
+	<string>29C</string>
+	<key>QSActions</key>
+	<dict>
+		<key>OpenMetaAddTags</key>
+		<dict>
+			<key>actionClass</key>
+			<string>OpenMetaFileTaggingAction</string>
+			<key>actionSelector</key>
+			<string>addToFiles:tagList:</string>
+			<key>description</key>
+			<string>Add Tags…</string>
+			<key>directTypes</key>
+			<array>
+				<string>NSFilenamesPboardType</string>
+			</array>
+			<key>icon</key>
+			<string>OpenMetaTagIcon</string>
+			<key>indirectOptional</key>
+			<false/>
+			<key>indirectTypes</key>
+			<array>
+				<string>NSStringPboardType</string>
+			</array>
+			<key>name</key>
+			<string>Add Tags…</string>
+		</dict>
+		<key>OpenMetaClearTags</key>
+		<dict>
+			<key>actionClass</key>
+			<string>OpenMetaFileTaggingAction</string>
+			<key>actionSelector</key>
+			<string>clearTagsFromFiles:</string>
+			<key>description</key>
+			<string>Clear Tags</string>
+			<key>directTypes</key>
+			<array>
+				<string>NSFilenamesPboardType</string>
+			</array>
+			<key>icon</key>
+			<string>OpenMetaTagIcon</string>
+			<key>name</key>
+			<string>Clear Tags</string>
+		</dict>
+		<key>OpenMetaRemoveTags</key>
+		<dict>
+			<key>actionClass</key>
+			<string>OpenMetaFileTaggingAction</string>
+			<key>actionSelector</key>
+			<string>removeFromFiles:tags:</string>
+			<key>description</key>
+			<string>Remove Tags…</string>
+			<key>directTypes</key>
+			<array>
+				<string>NSFilenamesPboardType</string>
+			</array>
+			<key>icon</key>
+			<string>OpenMetaTagIcon</string>
+			<key>indirectOptional</key>
+			<false/>
+			<key>indirectTypes</key>
+			<array>
+				<string>OpenMetaTag</string>
+			</array>
+			<key>name</key>
+			<string>Remove Tags…</string>
+		</dict>
+		<key>OpenMetaSetTags</key>
+		<dict>
+			<key>actionClass</key>
+			<string>OpenMetaFileTaggingAction</string>
+			<key>actionSelector</key>
+			<string>setToFiles:tagList:</string>
+			<key>description</key>
+			<string>Set Tags…</string>
+			<key>directTypes</key>
+			<array>
+				<string>NSFilenamesPboardType</string>
+			</array>
+			<key>icon</key>
+			<string>OpenMetaTagIcon</string>
+			<key>indirectOptional</key>
+			<false/>
+			<key>indirectTypes</key>
+			<array>
+				<string>NSStringPboardType</string>
+			</array>
+			<key>name</key>
+			<string>Set Tags…</string>
+		</dict>
+		<key>OpenMetaShowTags</key>
+		<dict>
+			<key>actionClass</key>
+			<string>OpenMetaFileTaggingAction</string>
+			<key>actionSelector</key>
+			<string>showTagsForFiles:</string>
+			<key>description</key>
+			<string>Show Tags</string>
+			<key>directTypes</key>
+			<array>
+				<string>NSFilenamesPboardType</string>
+			</array>
+			<key>icon</key>
+			<string>OpenMetaTagIcon</string>
+			<key>name</key>
+			<string>Show Tags</string>
+		</dict>
+	</dict>
+	<key>QSPlugIn</key>
+	<dict>
+		<key>author</key>
+		<string>Jordan Kay</string>
+		<key>categories</key>
+		<array>
+			<string>Files</string>
+			<string>Search</string>
+		</array>
+		<key>description</key>
+		<string>Support for file tagging with OpenMeta</string>
+		<key>extendedDescription</key>
+		<string>&lt;h1&gt;OpenMeta File Tagging Plugin&lt;/h1&gt;
+&lt;p&gt;The OpenMeta File Tagging Plugin for Quicksilver provides an interface for adding and removing OpenMeta tags to files, as well as browsing tags and finding all files with a certain tag or tags.&lt;/p&gt;
+&lt;h2&gt;Catalog&lt;/h2&gt;
+&lt;p&gt;The plugin adds all of the user’s OpenMeta tags to Quicksilver’s catalog. An OpenMeta tag in Quicksilver is treated like a folder: its children are its contents, accessed by drilling down into the tag with → or /. A tag’s contents consist of all files tagged with it, plus every other tag belonging to these files.&lt;/p&gt;
+&lt;h3&gt;Custom Entries&lt;/h3&gt;
+&lt;p&gt;You can add files to the catalog if they match one or more tags.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Add a new custom catalog entry using the &lt;code&gt;+&lt;/code&gt; at the bottom of the Catalog preferences.&lt;/li&gt;
+&lt;li&gt;Select “OpenMeta Tags” from the pop-up menu.&lt;/li&gt;
+&lt;li&gt;Enter one or more tags in the token field.&lt;/li&gt;
+&lt;li&gt;Optionally, change the name of the entry in the list.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Files matching all listed tags will be included in the global catalog.&lt;/p&gt;
+&lt;h2&gt;Search&lt;/h2&gt;
+&lt;p&gt;Use the OpenMeta File Tagging Plugin to search for files by tag. Drill down into a tag to see an alphabetical listing of all files so tagged. At the end of this list is a list of the other tags for these files. Refine your search by drilling down into one of these tags and filter even further. With this mechanism you can arbitrarily extend a query to involve any number of tags.&lt;/p&gt;
+&lt;p&gt;For example, to see all files tagged with the tag “foo,” bring up the “foo” tag object and drill down into it. Say some of these files are also tagged with “bar,” and still others, “baz”; these two will be listed at the bottom, after the list of files. Drilling down into one will further filter the results to only show files with &lt;em&gt;both&lt;/em&gt; tags (files tagged with “foo” and “bar” or files tagged with “foo” and “baz”). Drilling up out of these results reverts to showing all files tagged with just “foo.”&lt;/p&gt;
+&lt;p&gt;When performing such a compound tag query, you can keep track of the current search by looking at a possible tag’s value: filtering files tagged with “foo” and then “bar” will show the second tag as “foo, bar” in the command window. (Note: If your Quicksilver catalog contains Recent Objects, these compound tag lists will be included, and this may not be the browsing behavior you desire.)&lt;/p&gt;
+&lt;h2&gt;Working with Tags&lt;/h2&gt;
+&lt;p&gt;All of the expected tagging actions are made available by the plugin. Users can add tags to files, remove tags from files, set the tags of files to a different set, clear all tags from files, and show the tags of files. These actions can be performed on a single file or multiple files, thanks to Quicksilver’s multiple selection support using the comma key. Tags can be added to or removed from multiple files at a time, and the user can show all the tags that a group of files has in common. Showing the tags for a file or files will bring up a list of the tags in the Quicksilver’s direct object pane, ready to be explored. A similar interface is used for removing tags from files, presenting a list of that file’s current tags (or shared tags for multiple files).&lt;/p&gt;
+&lt;p&gt;In addition to operating on multiple files, you can use multiple tags in an operation. A list of appropriate tags should appear in the third pane. You can enter a new tag by switching to text-entry mode. Multiple tags can be selected with the comma trick or entered in text-entry mode by separating them with commas.&lt;/p&gt;
+&lt;p&gt;Tags can contain almost anything other than comma.&lt;/p&gt;
+&lt;h2&gt;Implementation&lt;/h2&gt;
+&lt;p&gt;The plugin hooks into the extended file attributes (with &lt;code&gt;xattr&lt;/code&gt;) and Spotlight search capabilities (using &lt;code&gt;MDQuery&lt;/code&gt;) of the Mac OS X filesystem directly; it does not require the OpenMeta command-line tool to be installed. As such, it should work right out of the box, allowing users to start tagging and finding files with OpenMeta even if they have never used the system before. This also allows performance to benefit from all actions being carried out directly at the &lt;code&gt;xattr&lt;/code&gt; or &lt;code&gt;MDQuery&lt;/code&gt; level, with no intermediary tools. There is no noticeable lag in searching or tagging, regardless of the complexity or size of the query or file list.&lt;/p&gt;
+&lt;h2&gt;Further Work&lt;/h2&gt;
+&lt;p&gt;As a part of Quicksilver the OpenMeta File Tagging plugin provides a foundation for most functionality of a tagging system, all available directly in the interface. Extending beyond Quicksilver might be a possibility worth exploring, perhaps showing files with certain tags in a new Finder window, or in a tagging-focused application like Leap.&lt;/p&gt;</string>
+		<key>icon</key>
+		<string>OpenMetaTagIcon</string>
+		<key>relatedBundles</key>
+		<array>
+			<string>com.ironic.tagit</string>
+		</array>
+		<key>relatedPaths</key>
+		<array>
+			<string>/usr/local/bin/openmeta</string>
+			<string>/usr/bin/openmeta</string>
+		</array>
+	</dict>
+	<key>QSPresetAdditions</key>
+	<array>
+		<dict>
+			<key>ID</key>
+			<string>QSPresetOpenMetaTags</string>
+			<key>enabled</key>
+			<true/>
+			<key>icon</key>
+			<string>OpenMetaTagIcon</string>
+			<key>name</key>
+			<string>OpenMeta Tags</string>
+			<key>source</key>
+			<string>OpenMetaFileTaggingSource</string>
+		</dict>
+	</array>
+	<key>QSRegistration</key>
+	<dict>
+		<key>QSActionProviders</key>
+		<dict>
+			<key>OpenMetaFileTaggingActionProvider</key>
+			<string>OpenMetaFileTaggingActionProvider</string>
+		</dict>
+		<key>QSBundleChildHandlers</key>
+		<dict>
+			<key>com.blacktree.Quicksilver.OpenMetaFileTagging</key>
+			<string>OpenMetaFileTaggingSource</string>
+		</dict>
+		<key>QSObjectHandlers</key>
+		<dict>
+			<key>OpenMetaTag</key>
+			<string>OpenMetaFileTaggingSource</string>
+		</dict>
+		<key>QSObjectSources</key>
+		<dict>
+			<key>OpenMeta Tags</key>
+			<string>QSOMTaggedFilesSource</string>
+			<key>OpenMetaFileTaggingSource</key>
+			<string>OpenMetaFileTaggingSource</string>
+		</dict>
+		<key>QSTypeDefinitions</key>
+		<dict>
+			<key>NSFilenamesPboardType</key>
+			<dict>
+				<key>icon</key>
+				<string>GenericDocumentIcon</string>
+				<key>name</key>
+				<string>File</string>
+			</dict>
+		</dict>
+	</dict>
+	<key>QSRequirements</key>
+	<dict>
+		<key>obsoletes</key>
+		<array>
+			<string>com.blacktree.Quicksilver.OpenMetaFileTagging</string>
+		</array>
+		<key>version</key>
+		<string>3926</string>
+	</dict>
+	<key>QSResourceAdditions</key>
+	<dict>
+		<key>OpenMetaTagIcon</key>
+		<dict>
+			<key>bundle</key>
+			<string>com.qsapp.OpenMetaFileTagging</string>
+			<key>resource</key>
+			<string>OpenMetaLogoIcon.png</string>
+		</dict>
+	</dict>
+</dict>
 </plist>

@@ -36,6 +36,9 @@ NSString *const kOpenmetaTagXAttrKeyword = @"com.apple.metadata:kMDItemOMUserTag
 
 - (NSArray *)filesWithTagList:(NSString *)tagList
 {
+    if (!tagList) {
+        return nil;
+    }
     NSString *queryString = [self _queryStringForTagList:tagList];
     NSArray *types = [NSArray arrayWithObjects:(NSString *)kMDItemPath, (NSString *)kMDItemFSName, nil];
     
@@ -57,17 +60,22 @@ NSString *const kOpenmetaTagXAttrKeyword = @"com.apple.metadata:kMDItemOMUserTag
 
 - (NSArray *)filesAndRelatedTagsForTagList:(NSString *)tagList
 {
+    if (!tagList) {
+        return nil;
+    }
     NSMutableArray *objects = [NSMutableArray arrayWithArray:[self filesWithTagList:tagList]];
     NSMutableArray *relatedTags = [NSMutableArray array];
     
-    NSArray *tagNames = [tagList componentsSeparatedByString:@", "];
+    NSArray *tagNames = [self tagsFromString:tagList];
     NSArray *relatedTagNames = [self relatedTagNamesForTagList:tagList];
     for(NSString *tagName in relatedTagNames) {
         if(![tagNames containsObject:tagName]) {
+            NSString *tagListString = [tagList stringByAppendingFormat:@", %@", tagName];
             QSObject *tag = [QSObject objectWithName:tagName];
-            [tag setObject:[tagList stringByAppendingFormat:@", %@", tagName] forType:OPENMETA_TAG];
-            [tag setIdentifier:[tag objectForType:OPENMETA_TAG]];
-            [tag setLabel:tagName];
+            [tag setObject:tagName forType:OPENMETA_TAG];
+            [tag setDetails:tagListString];
+            [tag setObject:tagListString forCache:OPENMETA_TAG_LIST];
+            [tag setIdentifier:[NSString stringWithFormat:@"%@:%@", OPENMETA_TAG_TRANSIENT, tagName]];
             [tag setPrimaryType:OPENMETA_TAG];
             [relatedTags addObject:tag];
         }
@@ -103,11 +111,19 @@ NSString *const kOpenmetaTagXAttrKeyword = @"com.apple.metadata:kMDItemOMUserTag
     [self _setValue:tags forKey:kOpenmetaTagXAttrKeyword atPath:filePath];
 }
 
+- (NSArray *)tagsFromString:(NSString *)tagList
+{
+    // get tags separated by ','
+    NSArray *rawTags = [tagList componentsSeparatedByString:@","];
+    // return tags without leading and trailing whitespace
+    return [rawTags arrayByPerformingSelector:@selector(stringByTrimmingCharactersInSet:) withObject:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+}
+
 #pragma mark MDQuery
 
 - (NSString *)_queryStringForTagList:(NSString *)tagList
 {
-    NSArray *tagNames = [tagList componentsSeparatedByString:@", "];
+    NSArray *tagNames = [self tagsFromString:tagList];
     NSMutableArray *clauses = [NSMutableArray array];
     for(NSString *tagName in tagNames) {
         [clauses addObject:[NSString stringWithFormat:@"%@ == '%@'", kOpenmetaTagKeyword, tagName]];
