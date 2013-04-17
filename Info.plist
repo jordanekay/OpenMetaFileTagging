@@ -218,6 +218,20 @@
 			<key>OpenMetaFileTaggingSource</key>
 			<string>OpenMetaFileTaggingSource</string>
 		</dict>
+		<key>QSTriggerEvents</key>
+		<dict>
+			<key>QSOpenMetaFileTagged</key>
+			<dict>
+				<key>icon</key>
+				<string>OpenMetaTagIcon</string>
+				<key>name</key>
+				<string>File Tagged</string>
+				<key>provider</key>
+				<string>OpenMetaFileTaggingAction</string>
+				<key>type</key>
+				<string>OpenMeta</string>
+			</dict>
+		</dict>
 		<key>QSTypeDefinitions</key>
 		<dict>
 			<key>NSFilenamesPboardType</key>

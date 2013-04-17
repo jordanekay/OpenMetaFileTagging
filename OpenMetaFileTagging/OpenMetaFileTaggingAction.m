@@ -55,6 +55,7 @@
     for(QSObject *file in [files splitObjects]) {
         [[OpenMetaHandler sharedHandler] addTags:tagNames toFile:[file objectForType:NSFilenamesPboardType]];
     }
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"QSEventNotification" object:@"QSOpenMetaFileTagged" userInfo:@{@"object": files}];
     [self addCatalogTags:tagsToAdd];
     return nil;
 }
@@ -80,6 +81,7 @@
     for(QSObject *file in [files splitObjects]) {
         [OMHandler setTags:tagNames forFile:[file objectForType:NSFilenamesPboardType]];
     }
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"QSEventNotification" object:@"QSOpenMetaFileTagged" userInfo:@{@"object": files}];
     [self addCatalogTags:tagsToSet];
     return nil;
 }
@@ -87,6 +89,7 @@
 - (QSObject *)clearTagsFromFiles:(QSObject *)files
 {
     [self setToFiles:files tagList:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"QSEventNotification" object:@"QSOpenMetaFileTagged" userInfo:@{@"object": files}];
     [self updateTagsOnDisk];
     return nil;
 }
