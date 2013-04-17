@@ -245,7 +245,7 @@
 			<key>bundle</key>
 			<string>com.qsapp.OpenMetaFileTagging</string>
 			<key>resource</key>
-			<string>OpenMetaLogoIcon.png</string>
+			<string>OpenMetaLogoIcon.tiff</string>
 		</dict>
 	</dict>
 </dict>
