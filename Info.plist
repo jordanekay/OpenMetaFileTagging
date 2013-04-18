@@ -231,6 +231,17 @@
 				<key>type</key>
 				<string>OpenMeta</string>
 			</dict>
+			<key>QSOpenMetaTagsCleared</key>
+			<dict>
+				<key>icon</key>
+				<string>OpenMetaTagIcon</string>
+				<key>name</key>
+				<string>File Tags Cleared</string>
+				<key>provider</key>
+				<string>OpenMetaFileTaggingAction</string>
+				<key>type</key>
+				<string>OpenMeta</string>
+			</dict>
 		</dict>
 		<key>QSTypeDefinitions</key>
 		<dict>
