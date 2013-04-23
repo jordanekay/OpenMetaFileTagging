@@ -89,7 +89,6 @@
 - (QSObject *)clearTagsFromFiles:(QSObject *)files
 {
     [self setToFiles:files tagList:nil];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"QSEventNotification" object:@"QSOpenMetaFileTagged" userInfo:@{@"object": files}];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"QSEventNotification" object:@"QSOpenMetaTagsCleared" userInfo:@{@"object": files}];
     [self updateTagsOnDisk];
     return nil;
