@@ -67,7 +67,7 @@
 		[[self currentEntry] setObject:settings forKey:kItemSettings];
 	}
     [settings setObject:[tagsTokenField objectValue] forKey:@"tags"];
-	[[NSNotificationCenter defaultCenter] postNotificationName:QSCatalogEntryChanged object:[self currentEntry]];
+	[[NSNotificationCenter defaultCenter] postNotificationName:QSCatalogEntryChangedNotification object:[self currentEntry]];
     [[self selection] scanAndCache];
 }
 
