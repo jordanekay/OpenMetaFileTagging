@@ -19,11 +19,11 @@
 	<key>CFBundlePackageType</key>
 	<string>BNDL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>2.0</string>
+	<string>2.1.2</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>29C</string>
+	<string>29F</string>
 	<key>QSActions</key>
 	<dict>
 		<key>OpenMetaAddTags</key>
@@ -218,6 +218,31 @@
 			<key>OpenMetaFileTaggingSource</key>
 			<string>OpenMetaFileTaggingSource</string>
 		</dict>
+		<key>QSTriggerEvents</key>
+		<dict>
+			<key>QSOpenMetaFileTagged</key>
+			<dict>
+				<key>icon</key>
+				<string>OpenMetaTagIcon</string>
+				<key>name</key>
+				<string>File Tagged</string>
+				<key>provider</key>
+				<string>OpenMetaFileTaggingAction</string>
+				<key>type</key>
+				<string>OpenMeta</string>
+			</dict>
+			<key>QSOpenMetaTagsCleared</key>
+			<dict>
+				<key>icon</key>
+				<string>OpenMetaTagIcon</string>
+				<key>name</key>
+				<string>File Tags Cleared</string>
+				<key>provider</key>
+				<string>OpenMetaFileTaggingAction</string>
+				<key>type</key>
+				<string>OpenMeta</string>
+			</dict>
+		</dict>
 		<key>QSTypeDefinitions</key>
 		<dict>
 			<key>NSFilenamesPboardType</key>
@@ -236,7 +261,7 @@
 			<string>com.blacktree.Quicksilver.OpenMetaFileTagging</string>
 		</array>
 		<key>version</key>
-		<string>3926</string>
+		<string>4012</string>
 	</dict>
 	<key>QSResourceAdditions</key>
 	<dict>
